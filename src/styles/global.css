@@ -1,0 +1,23 @@
+/* Global site-wide styles (e.g. body, html, typography)
+
+:root {
+    --color-primary: #97c8e7;
+    --color-secondary: #e7e197;
+    --accentOrange: #e7bb97;
+    --accentGreen: #afe797;
+    --text: #7b684f;
+    --background: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+
+}
+*/
