@@ -1,4 +1,4 @@
-const Episodes = () => {
+function Episodes() {
     return <h2>Episodes Page</h2>
 }
 
