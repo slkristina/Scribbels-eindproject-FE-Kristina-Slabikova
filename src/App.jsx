@@ -16,10 +16,10 @@ function App() {
         <>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/about" element={<About/>}/>
-                <Route path="/episodes" element={<Episodes/>}/>
-                <Route path="/shop" element={<Shop/>}/>
-                <Route path="/team" element={<Team/>}/>
+                <Route path="/over-scribbels" element={<About/>}/>
+                <Route path="/verhaaltjes" element={<Episodes/>}/>
+                <Route path="/winkeltje" element={<Shop/>}/>
+                <Route path="/over-de-makers" element={<Team/>}/>
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/admin" element={<AdminPage/>}/>
             </Routes>
