@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import Carousel from "../../components/Carousel.jsx";
+import Carousel from "../../components/Carousel/Carousel.jsx";
 
 function AdventuresPage() {
     const [adventures, setAdventures] = useState([]);
