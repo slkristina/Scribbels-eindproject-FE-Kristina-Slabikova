@@ -1,6 +1,6 @@
 function Team() {
     return (
-        <>
+        <div className="container">
             <h2>
                 Ontmoet de gepassioneerde makers achter de verhalen
             </h2>
@@ -51,7 +51,7 @@ function Team() {
                 kwaliteit én plezier.
                 ‘Een team dat begrijpt hoe kinderen leren, luisteren en verliefd worden op verhalen.’
             </p>
-        </>
+        </div>
     )
 }
 

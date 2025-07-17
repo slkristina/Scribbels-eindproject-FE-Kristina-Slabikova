@@ -1,6 +1,6 @@
 function Shop() {
     return (
-        <>
+        <div className="container">
             <p>
                 Ons winkeltje is nog een beetje leeg, maar daar komt verandering in! Binnenkort kun je hier leuke
                 Scribbels-dingetjes bestellen of downloaden.
@@ -16,7 +16,7 @@ function Shop() {
                 Met een donatie help je ons om nieuwe Scribbels te blijven publiceren. We zijn dankbaar voor elk bedrag.
                 Alvast bedankt!
             </p>
-        </>
+        </div>
     )
 }
 

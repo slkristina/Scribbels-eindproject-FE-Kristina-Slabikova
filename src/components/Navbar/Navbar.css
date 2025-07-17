@@ -13,12 +13,20 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1.5rem;
-    padding: 0 1rem;
+    padding: 0 3rem;
 }
 
 .site-logo {
     font-size: 2rem;
     background-color: var(--color-primary);
+    }
+
+.site-logo img {
+    height: 100px;
+    width: auto;
+    background-color: transparent;
+    object-fit: contain;
+    display: block;
 }
 
 .navbar ul {
@@ -54,4 +62,28 @@ body {
 
 .navbar li.hover {
     background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-logo img {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo img {
+        height: 100px;
+    }
 }

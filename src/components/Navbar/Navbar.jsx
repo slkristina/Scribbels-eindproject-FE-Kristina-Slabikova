@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
-                LOGO
+                <img src={'/assets/Logo-menu.png'} alt="Scribbels Logo" />
             </Link>
             <ul>
                 <li>
