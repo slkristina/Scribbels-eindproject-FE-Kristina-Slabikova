@@ -21,7 +21,7 @@ function ContactForm() {
             <div>
                 <label>
                     Jouw vraag, opmerking of iets wat je wilt delen
-                    <textarea name="message" rows="4" required></textarea>
+                    <textarea name="message" rows="8" required></textarea>
                     <input type="submit"/>
                 </label>
             </div>

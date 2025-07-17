@@ -6,17 +6,39 @@
     --accent-orange: #e7bb97;
     --accent-green: #afe797;
     --text: #7b684f;
-    --background: #ffffff;
+    --background: #F5F5F5;
 }
 
-/*body {*/
-/*    font-family: 'Inter', sans-serif;*/
-/*    background-color: var(--background);*/
-/*    color: var(--text);*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     background-color: var(--background);
+ }
 
-/*h1, h2, h3 {*/
+body {
+    font-family: 'IBM Plex Sans', 'Glacial Indifference', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 2;
+}
 
-/*}*/
+h1, h2, h3 {
+    font-family: 'Gaegu', sans-serif;
+    color: var(--text);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+ h2 {
+     font-size: 1.5rem;
+ }
+
+ p {
+     font-size: 1rem;
+     color: var(--text);
+     text-align: center;
+ }
