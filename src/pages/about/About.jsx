@@ -1,4 +1,5 @@
 import React from 'react';
+import "./About.css";
 
 function About() {
     return (
@@ -6,18 +7,16 @@ function About() {
             <div className="container">
                 <h2>Wat zijn Scribbels?</h2>
 
-                <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.
+                <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
 
                     <ul>
                         <li>Voor kinderen vanaf drie jaar.</li>
                         <li>Per verhaal 3-6 minuten (voor)lees-/luisterplezier.</li>
                     </ul>
-                </p>
-
 
                 <h2>Wat willen we met Scribbels?</h2>
 
-                <p>"Kinderen met verhalen spelenderwijs helpen (op)groeien."
+                <p id="about-quote">"Kinderen met verhalen spelenderwijs helpen (op)groeien."</p>
 
                     Via verhalen bouwen we aan de toekomst door bij te dragen aan:
 
@@ -29,12 +28,10 @@ function About() {
                         <li>Natuurkennis</li>
                         <li>En hopelijk worden ze enthousiast om zelf meer te gaan lezen!</li>
                     </ul>
-                </p>
 
 
                 <h2>Wat maakt Scribbels bijzonder?</h2>
 
-                <p>
                     <ul>
                         <li>Korte, verrassende en leerzame dierenverhalen.</li>
                         <li>Betekenisvolle thema's komen tot leven om vervolgens te bespreken, zoals: vriendschap,
@@ -50,7 +47,6 @@ function About() {
                         <li>Elke twee maanden een nieuw verhaal.</li>
                         <li>Uitvoerig getest en verbeterd middels een expert-testpanel.</li>
                     </ul>
-                </p>
             </div>
         </>
     );

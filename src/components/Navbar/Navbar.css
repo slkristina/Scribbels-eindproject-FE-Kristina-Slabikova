@@ -35,7 +35,7 @@ body {
     }
 
 .site-logo img {
-    height: 100px;
+    height: 50px;
     width: auto;
     background-color: transparent;
     object-fit: contain;
@@ -92,13 +92,13 @@ body {
 
 @media (max-width: 768px) {
     .site-logo img {
-        height: 80px;
+        height: 40px;
     }
 }
 
 @media (max-width: 480px) {
     .site-logo img {
-        height: 100px;
+        height: 30px;
     }
 }
 

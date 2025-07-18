@@ -13,14 +13,15 @@
      box-sizing: border-box;
      margin: 0;
      padding: 0;
-     background-color: var(--background);
  }
 
-body {
+html, body {
     font-family: 'IBM Plex Sans', 'Glacial Indifference', sans-serif;
     font-size: 1rem;
     color: var(--text);
     line-height: 2;
+    background-color: var(--background);
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -41,4 +42,17 @@ h1 {
      font-size: 1rem;
      color: var(--text);
      text-align: center;
+ }
+
+ main {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+     box-sizing: border-box;
+ }
+
+ @media (max-width: 600px) {
+     main {
+         padding: 0 1rem;
+     }
  }

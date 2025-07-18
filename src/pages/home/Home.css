@@ -1,0 +1,32 @@
+.btn {
+    margin-top: 4rem;
+    font-size: 1rem;
+}
+
+.homepage-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    padding: 1rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 60px;
+}
+
+.hero-image {
+    max-width: 600px;
+    flex: 1 1 400px;
+}
+
+.hero-text {
+    flex: 1 1 300px;
+}
