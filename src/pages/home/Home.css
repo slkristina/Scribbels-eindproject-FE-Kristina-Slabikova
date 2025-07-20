@@ -1,5 +1,6 @@
 .btn {
-    margin-top: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
     font-size: 1rem;
 }
 
@@ -29,4 +30,6 @@
 
 .hero-text {
     flex: 1 1 300px;
+    line-height: 1.5;
+    padding-top: 1rem;
 }

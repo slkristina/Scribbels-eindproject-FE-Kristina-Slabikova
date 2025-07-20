@@ -1,28 +1,27 @@
 import React, {useState} from "react";
+import './ContactForm.css';
 
 
 function ContactForm() {
     return (
-        <form>
+        <form className="contact-container">
             <div>
                 <label>
                     Naam
-                    <input type="text" name="name" required/>
+                    <input placeholder="Jouw naam" type="text" name="name" required/>
                 </label>
             </div>
 
             <div>
                 <label>
                     E-mail
-                    <input type="email" name="email" required/>
+                    <input placeholder="Jouw e-mail" type="email" name="email" required/>
                 </label>
             </div>
 
             <div>
                 <label>
-                    Jouw vraag, opmerking of iets wat je wilt delen
-                    <textarea name="message" rows="8" required></textarea>
-                    <input type="submit"/>
+                    <textarea  placeholder="Jouw vraag, opmerking of iets wat je wilt delen" name="message" rows="8" required></textarea>
                 </label>
             </div>
 

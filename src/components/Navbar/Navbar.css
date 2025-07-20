@@ -68,7 +68,8 @@ body {
 }
 
 .navbar a.active {
-    background-color: var(--accent-orange);
+    background-color: var(--color-secondary);
+    opacity: 80%;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     font-weight: bolder;
