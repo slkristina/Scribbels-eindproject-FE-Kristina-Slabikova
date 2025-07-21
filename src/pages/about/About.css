@@ -12,15 +12,16 @@
 .bullet-points li {
     display: flex;
     align-items: flex-start;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     line-height: 1.5;
     border-radius: 15px;
     gap: 0.5rem;
-    color: var(--text);
+    color: var(--color-primary);
     width: calc(50% - 0.5rem);
     text-align: left;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    font-weight: bolder;
 }
 
 .bullet-points li img {
@@ -35,8 +36,9 @@
     background-color: var(--accent-orange);
     padding: 1rem;
     border-radius: 8px;
-    font-size: 1.1rem;
-    border: 6px left var(--color-secondary);
+    font-size: 0.8rem;
+    font-weight: bolder;
+    opacity: 80%;
 }
 
 .container {
@@ -53,7 +55,7 @@ h2 {
 }
 
 p {
-    margin-bottom: 1rem;
+    margin: 1rem;
     font-size: 1.1rem;
 }
 

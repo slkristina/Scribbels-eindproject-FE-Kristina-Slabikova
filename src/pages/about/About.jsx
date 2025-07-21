@@ -11,8 +11,8 @@ function About() {
                 <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
 
                     <ul className="bullet-points">
-                        <li><img src={bulletPoint} alt="Bullet point"/>Voor kinderen vanaf drie jaar.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Per verhaal 3-6 minuten (voor)lees-/luisterplezier.</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Voor kinderen vanaf drie jaar</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Per verhaal 3-6 minuten (voor)lees-/luisterplezier</li>
                     </ul>
 
                 <h2>Wat willen we met Scribbels?</h2>
@@ -34,19 +34,19 @@ function About() {
                 <h2>Wat maakt Scribbels bijzonder?</h2>
 
                     <ul className="bullet-points">
-                        <li><img src={bulletPoint} alt="Bullet point"/>Korte, verrassende en leerzame dierenverhalen.</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Korte, verrassende en leerzame dierenverhalen</li>
                         <li><img src={bulletPoint} alt="Bullet point"/>Betekenisvolle thema's komen tot leven om vervolgens te bespreken, zoals: vriendschap,
                             jezelf
                             mogen zijn
-                            of samenwerken.
+                            of samenwerken
                         </li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Goed te gebruiken in de klas of BSO.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Stimuleert taal, fantasie en luistervaardigheid.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Rustig voorleestempo en daarmee fijn voor kinderen die baat hebben bij weinig prikkels.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Dierenvriendjes met herkenbare menselijke karakters.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Direct en gratis beschikbaar via Spotify, YouTube of als e-book.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Elke twee maanden een nieuw verhaal.</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Uitvoerig getest en verbeterd middels een expert-testpanel.</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Goed te gebruiken in de klas of BSO</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Stimuleert taal, fantasie en luistervaardigheid</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Rustig voorleestempo en daarmee fijn voor kinderen die baat hebben bij weinig prikkels</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Dierenvriendjes met herkenbare menselijke karakters</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Direct en gratis beschikbaar via Spotify, YouTube of als e-book</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Elke twee maanden een nieuw verhaal</li>
+                        <li><img src={bulletPoint} alt="Bullet point"/>Uitvoerig getest en verbeterd middels een expert-testpanel</li>
                     </ul>
             </div>
         </>

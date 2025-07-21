@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
+import Carousel from "../../components/Carousel/Carousel.jsx";
 
 function AdventuresPage() {
 
@@ -19,6 +20,7 @@ function AdventuresPage() {
                 <p>
                     Omgeving: Zee, Rivier, Bos, Woestijn, Huis en tuin, Overig
                 </p>
+                <Carousel />
             </div>
         </>
     )
