@@ -1,0 +1,66 @@
+.bullet-points {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.bullet-points li {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+    border-radius: 15px;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    width: calc(50% - 0.5rem);
+    text-align: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: bolder;
+}
+
+.bullet-points li img {
+    flex-shrink: 0;
+    height: 25px;
+    width: 25px;
+    margin-top: 0.2rem;
+}
+
+#about-quote {
+    font-style: italic;
+    background-color: var(--accent-orange);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    opacity: 80%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.7;
+}
+
+h2 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+}
+
+p {
+    margin: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+    .bullet-points li {
+        width: 100%;
+    }
+}

@@ -1,23 +1,58 @@
-/* Global site-wide styles (e.g. body, html, typography)
+ /*Global site-wide styles (e.g. body, html, typography)*/
 
 :root {
     --color-primary: #97c8e7;
     --color-secondary: #e7e197;
-    --accentOrange: #e7bb97;
-    --accentGreen: #afe797;
+    --accent-orange: #e7bb97;
+    --accent-green: #afe797;
     --text: #7b684f;
-    --background: #ffffff;
+    --background: #F5F5F5;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background);
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+html, body {
+    font-family: 'IBM Plex Sans', 'Glacial Indifference', sans-serif;
+    font-size: 1rem;
     color: var(--text);
-    margin: 0;
-    padding: 0;
+    line-height: 2;
+    background-color: var(--background);
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
-
+    font-family: 'Gaegu', sans-serif;
+    color: var(--text);
+    text-align: center;
 }
-*/
+
+h1 {
+    font-size: 2rem;
+}
+
+ h2 {
+     font-size: 1.5rem;
+ }
+
+ p {
+     font-size: 1rem;
+     color: var(--text);
+     text-align: center;
+ }
+
+ main {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 2rem;
+     box-sizing: border-box;
+ }
+
+ @media (max-width: 600px) {
+     main {
+         padding: 0 1rem;
+     }
+ }
