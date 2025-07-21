@@ -1,0 +1,36 @@
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-thumbnails {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.thumbnail-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-secondary);
+    width: 150px;
+    height: 200px;
+    margin: 0 1rem;
+    border-radius: 15px;
+    color: var(--text);
+    font-weight: bolder;
+}
+
+@media (max-width: 650px) {
+    .carousel-thumbnails {
+        flex-wrap: wrap;
+    }
+    .thumbnail-wrapper {
+        width: 100px;
+        height: 140px;
+    }
+}

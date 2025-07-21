@@ -11,8 +11,9 @@ import Team from './pages/team/Team.jsx'
 import Contact from './pages/contact/Contact.jsx'
 import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/AdminLogin.jsx";
+import AdminRegistration from "./pages/admin/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-
+import Carousel from "./components/Carousel/Carousel.jsx";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                         <Route path="/contact" element={<Contact/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
                         <Route path="/adminLogin" element={<AdminLogin/>}/>
+                        <Route path="/adminRegistration" element={<AdminRegistration/>}/>
                     </Routes>
                 </div>
             </main>
