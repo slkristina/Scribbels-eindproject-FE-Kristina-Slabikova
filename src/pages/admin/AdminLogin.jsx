@@ -19,11 +19,19 @@ function AdminLogin() {
         }
     };
 
+    function handleReset() {
+        setEmail("");
+        setPassword("");
+    }
+
     return (
         <div className="container">
             <div className="admin-login">
-                <h2>Admin Login Page</h2>
+                <h2>Login Page</h2>
                 <form onSubmit={handleLogin}>
+                    <label>
+                        E-mailadres:
+                    </label>
                     <input
                         type="email"
                         placeholder="E-mailadres"
@@ -31,6 +39,9 @@ function AdminLogin() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    <label>
+                        Password:
+                    </label>
                     <input
                         type="password"
                         placeholder="Wachtwoord"
@@ -38,8 +49,10 @@ function AdminLogin() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    //TO DO: remove inline styling from below
                     {error ? <p style={{color: "red"}}>{error}</p> : null}
                     <button type={"submit"}>Inloggen</button>
+                    <button onClick={handleReset}>Reset</button>
                 </form>
             </div>
         </div>

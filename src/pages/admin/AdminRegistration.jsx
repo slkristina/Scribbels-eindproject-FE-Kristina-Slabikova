@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth} from "firebase/auth"
 import {useNavigate} from "react-router-dom";
 
 function AdminRegistration() {
@@ -7,12 +7,11 @@ function AdminRegistration() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const [succsessfullyRegistred, setSuccsessfullyRegistred] = useState("");
+    const [successfullyRegistered, setSuccessfullyRegistered] = useState("");
 
     const handleRegistration = async (e) => {
         e.preventDefault();
         setError("");
-        setSuccsessfullyRegistred("");
 
         const auth = getAuth();
 
@@ -22,17 +21,25 @@ function AdminRegistration() {
             const errorMessage = error.message;
             const errorCode = error.code;
 
-            setSuccsessfullyRegistred("Registration is successful");
+            setSuccessfullyRegistered("Registration is successful");
         } catch (error) {
             setError("Registration failed");
         }
     };
+
+    function handleReset() {
+        setEmail("");
+        setPassword("");
+    }
 
     return (
         <div className="container">
             <div className="admin-registration-form">
                 <h2>Admin Registratie</h2>
                 <form onSubmit={handleRegistration}>
+                    <p>
+                        E-mailadres:
+                    </p>
                     <input
                         type="email"
                         placeholder="E-mailadres"
@@ -40,6 +47,9 @@ function AdminRegistration() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    <p>
+                        Password:
+                    </p>
                     <input
                         type="password"
                         placeholder="Wachtwoord"
@@ -48,8 +58,9 @@ function AdminRegistration() {
                         required
                     />
                     {error && <p style={{color: "red"}}>{error}</p>}
-                    {succsesfullyRegistred && <p style={{color: "green"}}>{succsesfullyRegistred}</p>}
+                    {successfullyRegistered && <p style={{color: "green"}}>{successfullyRegistered}</p>}
                     <button type={"submit"}>Registreren</button>
+                    <button onClick={handleReset}>Reset</button>
                 </form>
             </div>
         </div>

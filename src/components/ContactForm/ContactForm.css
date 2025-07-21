@@ -62,10 +62,11 @@ textarea {
     padding-top: 1rem;
 }
 
-textarea::placeholder{
+textarea::placeholder {
     font-size: 1rem;
     opacity: 0.5;
     color: var(--text);
     padding-left: 1rem;
     padding-top: 1rem;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans', serif;
+}

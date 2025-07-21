@@ -23,6 +23,12 @@ function Carousel() {
         .map((thumbnail, index) => (
             <div key={index} className="thumbnail-wrapper">
                 {thumbnail}
+
+                <div className="thumbnail-buttons">
+                    <button>1</button>
+                    <button>1</button>
+                    <button>1</button>
+                </div>
             </div>
         ))
 

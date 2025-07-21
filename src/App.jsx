@@ -1,7 +1,7 @@
 import './App.css'
 import './styles/global.css';
 import './styles/index.css';
-import {Routes, Route} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx'
 import Home from './pages/home/Home.jsx'
 import AdventuresPage from "./pages/adventures/AdventuresPage.jsx";
@@ -13,7 +13,6 @@ import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import Carousel from "./components/Carousel/Carousel.jsx";
 
 function App() {
     return (
@@ -29,8 +28,8 @@ function App() {
                         <Route path="/over-de-makers" element={<Team/>}/>
                         <Route path="/contact" element={<Contact/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
-                        <Route path="/adminLogin" element={<AdminLogin/>}/>
-                        <Route path="/adminRegistration" element={<AdminRegistration/>}/>
+                        <Route path="/login" element={<AdminLogin/>}/>
+                        <Route path="/register" element={<AdminRegistration/>}/>
                     </Routes>
                 </div>
             </main>
