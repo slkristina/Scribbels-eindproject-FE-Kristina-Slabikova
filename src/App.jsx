@@ -9,10 +9,10 @@ import About from './pages/about/About.jsx'
 import Shop from './pages/shop/Shop.jsx'
 import Team from './pages/team/Team.jsx'
 import Contact from './pages/contact/Contact.jsx'
-import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard.jsx";
 
 function App() {
     return (
@@ -27,7 +27,7 @@ function App() {
                         <Route path="/winkeltje" element={<Shop/>}/>
                         <Route path="/over-de-makers" element={<Team/>}/>
                         <Route path="/contact" element={<Contact/>}/>
-                        <Route path="/admin" element={<AdminPage/>}/>
+                        <Route path="/admin" element={<AdminDashboard/>}/>
                         <Route path="/login" element={<AdminLogin/>}/>
                         <Route path="/register" element={<AdminRegistration/>}/>
                     </Routes>

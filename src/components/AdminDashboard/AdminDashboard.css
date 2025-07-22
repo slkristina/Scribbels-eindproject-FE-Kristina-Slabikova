@@ -1,0 +1,11 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+@media (max-width: 780px) {
+    .dashboard-container {
+        height: auto;
+        flex-direction: column;
+    }
+}
