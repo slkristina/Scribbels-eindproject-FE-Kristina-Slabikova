@@ -1,9 +1,9 @@
-import  {initializeApp } from "firebase/app";
-import  { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import {initializeApp} from "firebase/app";
+import {getAuth} from "firebase/auth";
+import {getFirestore} from "firebase/firestore";
+import {getStorage} from "firebase/storage";
 
-export const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyC1amjd3zL34JGkHpdeGnEQKqmGC5SACKU",
     authDomain: "scribbels-b3ffe.firebaseapp.com",
     projectId: "scribbels-b3ffe",
@@ -13,8 +13,7 @@ export const firebaseConfig = {
     base_url: "https://firestore.googleapis.com"
 };
 
-const app = initializeApp(firebaseConfig);
-
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

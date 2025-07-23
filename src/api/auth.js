@@ -1,11 +1,11 @@
 import axios from "axios";
-import {firebaseConfig} from "../firebase/firebaseConfig";
+import {FirebaseConfig} from "../firebase/FirebaseConfig.js";
 
 export const loginAdmin = async (email, password) => {
 
     try {
         const res = await axios.post(
-            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FirebaseConfig.apiKey}`,
             {
                 email,
                 password,
