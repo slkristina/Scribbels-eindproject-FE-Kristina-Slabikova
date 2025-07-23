@@ -3,6 +3,7 @@ import {auth} from "../../firebase/FirebaseConfig.js";
 import {sendEmailVerification, signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 import {useAuthValue} from "./AuthContext.jsx";
+import "./AdminLogin.css";
 
 function AdminLogin() {
     const [email, setEmail] = useState("");
@@ -72,8 +73,7 @@ function AdminLogin() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    //TO DO: remove inline styling from below
-                    {error ? <p style={{color: "red"}}>{error}</p> : null}
+                    {error ? <p className="error-message">{error}</p> : null}
                     <button type={"submit"}>Inloggen</button>
                     <button onClick={handleReset}>Reset</button>
                 </form>

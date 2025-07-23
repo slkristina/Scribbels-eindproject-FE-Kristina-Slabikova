@@ -21,16 +21,18 @@ function Carousel() {
 
     const renderedThumbnails = visibleThumbnails
         .map((thumbnail, index) => (
-            <div key={index} className="thumbnail-wrapper">
-                {thumbnail}
-
+            <React.Fragment key={index}>
+                <div className="thumbnail-wrapper">
+                    {thumbnail}
+                </div>
                 <div className="thumbnail-buttons">
                     <button>1</button>
-                    <button>1</button>
-                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
                 </div>
-            </div>
+            </React.Fragment>
         ))
+    ;
 
     return (
         <div className="container">

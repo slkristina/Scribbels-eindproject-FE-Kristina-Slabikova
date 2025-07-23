@@ -20,7 +20,7 @@ label {
 
 button {
     background-color: var(--accent-green);
-    color: white;
+    color: var(--text);
     font-size: 1rem;
     padding: 1rem 1.5rem;
     border: none;
