@@ -1,0 +1,23 @@
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.filter-category {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.filter-category label {
+    margin-bottom: 0.25rem;
+}
+
+.filter-category select {
+    padding: 0.1rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-primary);
+    font-size: 0.7rem;
+}

@@ -1,29 +1,61 @@
 import React, {useState} from "react";
-import {auth} from "../../firebase/firebaseConfig";
-import {signInWithEmailAndPassword} from "firebase/auth"
+import {auth} from "../../firebase/FirebaseConfig.js";
+import {sendEmailVerification, signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
+import {useAuthValue} from "./AuthContext.jsx";
+import "./AdminLogin.css";
 
 function AdminLogin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const {setTimeActive} = useAuthValue();
 
-    const handleLogin = async (e) => {
+    const login = e => {
         e.preventDefault();
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            navigate("/admin/dashboard");
-        } catch (err) {
-            setError("Ongeldige inloggegevens");
-        }
-    };
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                if (!auth.currentUser.emailVerified) {
+                    sendEmailVerification(auth.currentUser)
+                        .then(() => {
+                            setTimeActive(true)
+                            navigate('/verify-email')
+                        })
+                        .catch(err => alert(err.message))
+                } else {
+                    navigate('/')
+                }
+            })
+            .catch(err => setError(err.message))
+    }
+
+    // const handleLogin = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         await signInWithEmailAndPassword(auth, email, password);
+    //         navigate("/admin/dashboard");
+    //     } catch (err) {
+    //         setError("Ongeldige inloggegevens");
+    //     }
+    // };
+
+    function handleReset() {
+        setEmail("");
+        setPassword("");
+    }
+
+    const {currentUser} = useAuthValue();
+    console.log(currentUser);
 
     return (
         <div className="container">
             <div className="admin-login">
-                <h2>Admin Login Page</h2>
-                <form onSubmit={handleLogin}>
+                <h2>Login Page</h2>
+                <form onSubmit={login} name='login_form'>
+                    <label>
+                        E-mailadres:
+                    </label>
                     <input
                         type="email"
                         placeholder="E-mailadres"
@@ -31,6 +63,9 @@ function AdminLogin() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    <label>
+                        Password:
+                    </label>
                     <input
                         type="password"
                         placeholder="Wachtwoord"
@@ -38,8 +73,11 @@ function AdminLogin() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    {error ? <p style={{color: "red"}}>{error}</p> : null}
-                    <button type={"submit"}>Inloggen</button>
+                    {error ? <p className="error-message">{error}</p> : null}
+                    <div className="buttons">
+                        <button type={"submit"}>Inloggen</button>
+                        <button type="button" onClick={handleReset}>Reset</button>
+                    </div>
                 </form>
             </div>
         </div>
