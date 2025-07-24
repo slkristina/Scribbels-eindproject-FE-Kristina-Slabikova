@@ -51,9 +51,9 @@ function AdminRegistration() {
     // const handleRegistration = async (e) => {
     //     e.preventDefault();
     //     setError("");
-    //
+
     //     const auth = getAuth();
-    //
+
     //     try {
     //         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     //         const user = userCredential.user;
@@ -65,6 +65,7 @@ function AdminRegistration() {
     //         setError("Registration failed");
     //     }
     // };
+
 
     function handleReset() {
         setEmail("");

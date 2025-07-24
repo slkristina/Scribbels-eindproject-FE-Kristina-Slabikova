@@ -12,8 +12,11 @@ function Team() {
             <div className="team-container">
                 <div className="team-member">
                     <img src={fotoMartien} alt="Martien photo"/>
+                    <h2>
+                        Martien Vosters
+                    </h2>
                     <h3>
-                        Martien Vosters: verhalenverteller met hart voor kindertaal
+                        verhalenverteller met hart voor kindertaal
                     </h3>
                     <p>
                         Mijn hele leven schrijf ik al verhalen, gewoon voor mezelf. Het liefst op een mooie
@@ -27,8 +30,11 @@ function Team() {
                 </div>
                 <div className="team-member">
                     <img src={fotoAstrid} alt="Astrid photo"/>
+                    <h2>
+                        Astrid Butijn
+                    </h2>
                     <h3>
-                        Astrid Butijn: illustrator die dieren tot leven brengt
+                        illustrator die dieren tot leven brengt
                     </h3>
                     <p>
                         Mijn hele leven teken en schilder ik al graag en veel. Tot een paar jaar geleden was het enkel
@@ -56,8 +62,11 @@ function Team() {
                 </div>
                 <div className="team-member">
                     <img src={fotoRoxanne} alt="Roxanne photo"/>
+                    <h2>
+                        Roxanne Robijns
+                    </h2>
                     <h3>
-                        Roxanne Robijns: stemacteur die warmte brengt in elk woord
+                        stemacteur die warmte brengt in elk woord
                     </h3>
                     <p>Met veel plezier werk ik als co-auteur, stemacteur en video-editor voor
                         Scribbels Dierenverhaaltjes.

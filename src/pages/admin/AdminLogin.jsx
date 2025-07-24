@@ -74,8 +74,10 @@ function AdminLogin() {
                         required
                     />
                     {error ? <p className="error-message">{error}</p> : null}
-                    <button type={"submit"}>Inloggen</button>
-                    <button onClick={handleReset}>Reset</button>
+                    <div className="buttons">
+                        <button type={"submit"}>Inloggen</button>
+                        <button type="button" onClick={handleReset}>Reset</button>
+                    </div>
                 </form>
             </div>
         </div>

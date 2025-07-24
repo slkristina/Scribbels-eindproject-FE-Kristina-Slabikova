@@ -1,3 +1,5 @@
+import './Shop.css';
+
 function Shop() {
     return (
         <div className="container">
@@ -9,7 +11,13 @@ function Shop() {
                 Wie weet verschijnt jouw tekening op onze Instagram @scribbels.dierenverhaaltjes. We vermelden alleen je
                 voornaam en leeftijd.
             </p>
-            <p>
+            <h2>
+                Onze kleurplaaten
+            </h2>
+            <h3>
+                Momenteel in aanbouw ...
+            </h3>
+            <p className="donation">
                 Wil je ons helpen?
                 Wij maken Scribbels Dierenverhaaltjes met veel plezier en passie. Iedereen heeft gratis toegang tot onze
                 verhaaltjes. We vinden het belangrijk dat alle kinderen en volwassenen ervan kunnen genieten.

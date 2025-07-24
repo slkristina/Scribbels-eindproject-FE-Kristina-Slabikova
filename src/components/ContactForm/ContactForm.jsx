@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import './ContactForm.css';
 
 function ContactForm() {
@@ -20,7 +20,8 @@ function ContactForm() {
 
             <div>
                 <label>
-                    <textarea  placeholder="Jouw vraag, opmerking of iets wat je wilt delen" name="message" rows="8" required></textarea>
+                    Jouw vraag, opmerking of iets wat je wilt delen:
+                    <textarea  placeholder="Voer hier uw tekst in" name="message" rows="8" required></textarea>
                 </label>
             </div>
 
