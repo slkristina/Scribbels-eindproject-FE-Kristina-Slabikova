@@ -1,6 +1,26 @@
+.thumbnail-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.carousel-nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 50px;
+    width: 50px;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
 .carousel-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .carousel-thumbnails {
@@ -16,19 +36,48 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-secondary);
-    width: 150px;
-    height: 200px;
+    width: 230px;
+    height: 150px;
     margin: 0 1rem;
     border-radius: 15px;
     color: var(--text);
     font-weight: bolder;
+    border: 1px solid var(--accent-green);
+}
+
+.thumbnail-wrapper:hover {
+    transform: scale(1.15);
+    z-index: 1;
 }
 
 .thumbnail-buttons {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.thumbnail-buttons button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-secondary);
+    border-radius: 15px;
+}
+
+.thumbnail-image:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 650px) {
