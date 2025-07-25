@@ -24,29 +24,17 @@ function AdminLogin() {
                         })
                         .catch(err => alert(err.message))
                 } else {
-                    navigate('/')
+                    navigate('/admin')
                 }
             })
             .catch(err => setError(err.message))
     }
-
-    // const handleLogin = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await signInWithEmailAndPassword(auth, email, password);
-    //         navigate("/admin/dashboard");
-    //     } catch (err) {
-    //         setError("Ongeldige inloggegevens");
-    //     }
-    // };
 
     function handleReset() {
         setEmail("");
         setPassword("");
     }
 
-    const {currentUser} = useAuthValue();
-    console.log(currentUser);
 
     return (
         <div className="container">

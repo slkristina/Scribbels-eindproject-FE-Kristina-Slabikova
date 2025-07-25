@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {useAuthValue} from "./AuthContext.jsx";
 
 function AdminRegistration() {
-    console.log("AdminRegistration loaded");
+    console.log("register called");
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,16 +32,24 @@ function AdminRegistration() {
         console.log("Form submitted!");
         setError((''));
 
-        if(validatePassword()) {
-            createUserWithEmailAndPassword(auth, email,password)
+        if (validatePassword()) {
+            console.log("password validation has been passed");
+            createUserWithEmailAndPassword(auth, email, password)
                 .then(() => {
+                    console.log("user has been just created:");
                     sendEmailVerification(auth.currentUser)
                         .then(() => {
+                            console.log("verification e-mail has been successfully sent");
                             setTimeActive(true);
                             navigate('/verify-email');
                         })
+                        .catch(error => {
+                            alert(error.message);
+                        });
                 })
-                .catch(error => alert(error.message));
+                .catch((error => {
+                    setError(error.message);
+                }));
         }
         setEmail('');
         setPassword('');

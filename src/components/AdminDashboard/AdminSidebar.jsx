@@ -1,7 +1,18 @@
 import React from "react";
 import "./AdminSidebar.css";
+import {auth} from "../../firebase/FirebaseConfig.js";
+import {useNavigate} from "react-router-dom";
 
 function AdminSidebar({activeTab, setActiveTab}) {
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        auth.signOut()
+            .then(() => navigate("/"))
+            .catch((error) => console.error(error))
+    }
+
+
     return (
         <div className="admin-sidebar-container">
             <h2>Admin Dashboard</h2>
@@ -25,8 +36,8 @@ function AdminSidebar({activeTab, setActiveTab}) {
             </button>
 
             <button
-                className={activeTab === "logout" ? "active sidebar-btn" : "sidebar-btn"}
-                onClick={() => setActiveTab("logout")}>
+                className={"sidebar-btn"}
+                onClick={handleLogout}>
                 Log Out
             </button>
         </div>

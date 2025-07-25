@@ -16,7 +16,7 @@ function VerifyEmail() {
                 .then(() => {
                     if (currentUser?.emailVerified) {
                         clearInterval(interval)
-                        navigate('/');
+                        navigate('/admin');
                     }
                 })
                 .catch((err) => {
@@ -30,11 +30,11 @@ function VerifyEmail() {
 
     useEffect(() => {
         let interval = null
-        if (timeActive && time !== 0){
+        if (timeActive && time !== 0) {
             interval = setInterval(() => {
                 setTime((time) => time - 1)
             }, 1000)
-        }else if(time ===0){
+        } else if (time === 0) {
             setTimeActive(false);
             setTime(60);
             clearInterval(interval);
@@ -48,10 +48,11 @@ function VerifyEmail() {
             .then(() => {
                 setButtonDisabled(false);
                 setTimeActive(true);
-            }).catch((err) => {
-            alert(err.message)
-            setButtonDisabled(false)
-        })
+            })
+            .catch((err) => {
+                alert(err.message)
+                setButtonDisabled(false)
+            })
     }
 
     return (
