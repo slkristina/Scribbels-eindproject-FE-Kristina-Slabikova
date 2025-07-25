@@ -9,9 +9,9 @@ function Home() {
             </div>
             <div className="hero-text">
                 <h1 className="header">Welkom bij Scribbels Dierenverhaaltjes</h1>
-                <h2>
+                <h3>
                     De magie van verhalen voor jonge ontdekkers
-                </h2>
+                </h3>
                 <p>
                     Superleuk dat je ons hebt gevonden. Stap binnen in de betoverende wereld van Scribbels
                     Dierenverhaaltjes.

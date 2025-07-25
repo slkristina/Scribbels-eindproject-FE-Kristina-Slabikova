@@ -1,31 +1,71 @@
 import React, {useState} from "react";
-import {createUserWithEmailAndPassword, getAuth} from "firebase/auth"
+import {createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth"
+import {auth} from "../../firebase/FirebaseConfig.js";
+import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
+import {useAuthValue} from "./AuthContext.jsx";
 
 function AdminRegistration() {
+    console.log("AdminRegistration loaded");
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const {setTimeActive} = useAuthValue();
     const [successfullyRegistered, setSuccessfullyRegistered] = useState("");
 
-    const handleRegistration = async (e) => {
-        e.preventDefault();
-        setError("");
-
-        const auth = getAuth();
-
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-            const errorMessage = error.message;
-            const errorCode = error.code;
-
-            setSuccessfullyRegistered("Registration is successful");
-        } catch (error) {
-            setError("Registration failed");
+    const validatePassword = () => {
+        let isValid = true
+        if (password !== '' && confirmPassword !== '') {
+            if (password !== confirmPassword) {
+                isValid = false
+                setError('Wachtwoorden komen niet overeen')
+            }
         }
-    };
+        return isValid
+    }
+
+    const register = e => {
+        e.preventDefault();
+        console.log("Form submitted!");
+        setError((''));
+
+        if(validatePassword()) {
+            createUserWithEmailAndPassword(auth, email,password)
+                .then(() => {
+                    sendEmailVerification(auth.currentUser)
+                        .then(() => {
+                            setTimeActive(true);
+                            navigate('/verify-email');
+                        })
+                })
+                .catch(error => alert(error.message));
+        }
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+    }
+
+    // const handleRegistration = async (e) => {
+    //     e.preventDefault();
+    //     setError("");
+
+    //     const auth = getAuth();
+
+    //     try {
+    //         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    //         const user = userCredential.user;
+    //         const errorMessage = error.message;
+    //         const errorCode = error.code;
+    //
+    //         setSuccessfullyRegistered("Registration is successful");
+    //     } catch (error) {
+    //         setError("Registration failed");
+    //     }
+    // };
+
 
     function handleReset() {
         setEmail("");
@@ -36,7 +76,7 @@ function AdminRegistration() {
         <div className="container">
             <div className="admin-registration-form">
                 <h2>Admin Registratie</h2>
-                <form onSubmit={handleRegistration}>
+                <form onSubmit={register} name='registration-form'>
                     <p>
                         E-mailadres:
                     </p>
@@ -57,10 +97,20 @@ function AdminRegistration() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    {error && <p style={{color: "red"}}>{error}</p>}
-                    {successfullyRegistered && <p style={{color: "green"}}>{successfullyRegistered}</p>}
-                    <button type={"submit"}>Registreren</button>
-                    <button onClick={handleReset}>Reset</button>
+                    <p>
+                        Bevestig Wachtwoord:
+                    </p>
+                    <input
+                        type="password"
+                        placeholder="Bevestig Wachtwoord"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                    {error && <p className="error-message">{error}</p>}
+                    {successfullyRegistered && <p className="success-message">{successfullyRegistered}</p>}
+                    <button type={"submit"} onClick={() => console.log("Register button clicked!")}>Registreren</button>
+                    <button type="button" onClick={handleReset}>Reset</button>
                 </form>
             </div>
         </div>

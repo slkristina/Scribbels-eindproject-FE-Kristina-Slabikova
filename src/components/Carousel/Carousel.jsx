@@ -3,7 +3,13 @@ import './Carousel.css';
 
 
 function Carousel() {
-    const adventuresThumbnails = ["Episode1", "Episode2", "Episode3", "Episode4", "Episode5"];
+    const adventuresThumbnails = [
+        "/assets/thumbnails/01-Lea-ontdekt-een-hoopje-zand.png",
+        "/assets/thumbnails/02-Swijnstein-ontmoet-wormpje.png",
+        "/assets/thumbnails/03-Fladder-en-de-bezige-mier.png",
+        "/assets/thumbnails/04-Doris-en-de-schatkist-Deel-1.png",
+        "/assets/thumbnails/05-Doris-en-de-schatkist-Deel-2.png"
+    ];
     const [currentStartIndex, setCurrentStartIndex] = useState(0);
     const visibleThumbnails = adventuresThumbnails.slice(currentStartIndex, currentStartIndex + 3);
 
@@ -21,36 +27,44 @@ function Carousel() {
 
     const renderedThumbnails = visibleThumbnails
         .map((thumbnail, index) => (
-            <div key={index} className="thumbnail-wrapper">
-                {thumbnail}
-
+            <div className="thumbnail-card" key={index}>
+                <div className="thumbnail-wrapper">
+                   <img
+                        src={thumbnail}
+                        alt={`Scribbels Episode Cover`}
+                        className="thumbnail-image"
+                   />
+                </div>
                 <div className="thumbnail-buttons">
-                    <button>1</button>
-                    <button>1</button>
-                    <button>1</button>
+                    <button>📺</button>
+                    <button>🎧</button>
+                    <button>📖</button>
                 </div>
             </div>
         ))
+    ;
 
     return (
         <div className="container">
             <div className="carousel-wrapper">
-                <div className="thumbnail-wrapper">
-                    <button className="carousel-nav-btn" onClick={returnBack} disabled={currentStartIndex === 0}>
-                        Back
-                    </button>
-                    <div className="carousel-thumbnails">
+                <button className="carousel-nav-btn"
+                        onClick={returnBack}
+                        disabled={currentStartIndex === 0}>
+                    ⇦
+                </button>
+
+                <div className="carousel-thumbnails">
                         {renderedThumbnails}
-                    </div>
-                    <button className="carousel-nav-btn" onClick={goForward}
-                            disabled={currentStartIndex === adventuresThumbnails.length - 1}>
-                        Forward
-                    </button>
                 </div>
+
+                <button className="carousel-nav-btn"
+                        onClick={goForward}
+                        disabled={currentStartIndex === adventuresThumbnails.length - 1}>
+                    ⇨
+                </button>
             </div>
         </div>
     )
-
 }
 
 export default Carousel;

@@ -30,12 +30,11 @@ body {
 }
 
 .site-logo {
-    font-size: 2rem;
     background-color: var(--color-primary);
     }
 
 .site-logo img {
-    height: 50px;
+    height: 65px;
     width: auto;
     background-color: transparent;
     object-fit: contain;

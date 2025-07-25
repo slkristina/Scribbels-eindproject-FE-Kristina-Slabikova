@@ -1,8 +1,8 @@
 import axios from "axios";
-import {firebaseConfig} from "../firebase/firebaseConfig.js";
+import {FirebaseConfig} from "../../firebase/FirebaseConfig.js";
 
-const baseURL = firebaseConfig.base_url;
-const projectId = firebaseConfig.projectId
+const baseURL = FirebaseConfig.base_url;
+const projectId = FirebaseConfig.projectId
 
 export const fetchAllItems = async (collectionName) => {
     const res = await axios.get(`${baseURL}/v1/projects/${projectId}/databases/(default)/documents/${collectionName}`);

@@ -27,13 +27,22 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.team-member h2 {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
 .team-member h3 {
-    color: var(--text);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .team-member p {
     font-size: 0.8rem;
+    text-align: justify;
 }
 
 @media (max-width: 768px) {

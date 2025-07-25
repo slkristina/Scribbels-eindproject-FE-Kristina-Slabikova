@@ -1,4 +1,3 @@
-/*reusable layout components/ classes like .container, .btn, etc.*/
 .container {
     margin: 0 auto;
     padding: 0 1rem;
@@ -17,10 +16,12 @@
     border-radius: 10px;
     cursor: pointer;
     border: none;
+    color: var(--text);
 }
 
 .btn:hover {
     background-color: var(--accent-green);
+    color: var(--text);
 }
 
 .img {
