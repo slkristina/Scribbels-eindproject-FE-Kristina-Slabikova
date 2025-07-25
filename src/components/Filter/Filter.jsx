@@ -1,7 +1,7 @@
 import React from "react";
 import './Filter.css';
 
-function Filter() {
+function Filter({omgevingen}){
     return (
         <div className="filter-container">
             <div className="filter-category">
@@ -22,12 +22,9 @@ function Filter() {
                     Omgeving
                 </label>
                 <select id="surrounding-filter">
-                    <option value="Overig">Overig</option>
-                    <option value="Zee">Zee</option>
-                    <option value="Rivier">Rivier</option>
-                    <option value="Bos">Bos</option>
-                    <option value="Woestijn">Woestijn</option>
-                    <option value="Huis en tuin">Huis en tuin</option>
+                    {omgevingen && omgevingen
+                        .map(omgeving => <option value={omgeving}>{omgeving}</option>
+                        )}
                 </select>
             </div>
 

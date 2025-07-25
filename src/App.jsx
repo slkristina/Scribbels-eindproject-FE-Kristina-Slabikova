@@ -1,14 +1,12 @@
 import './App.css';
 import './styles/global.css';
 import './styles/index.css';
-import {useEffect, useState} from "react";
-import {onAuthStateChanged} from "firebase/auth";
-import {AuthProvider} from "./pages/admin/AuthContext.jsx";
+import {useState} from "react";
+import {AuthProvider, useAuthValue} from "./pages/admin/AuthContext.jsx";
 import {Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './pages/home/Home.jsx';
 import AdventuresPage from "./pages/adventures/AdventuresPage.jsx";
-import AdminDashboard from "./components/AdminDashboard/AdminDashboard.jsx";
 import About from './pages/about/About.jsx';
 import Shop from './pages/shop/Shop.jsx';
 import Team from './pages/team/Team.jsx';
@@ -17,20 +15,16 @@ import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import {auth} from "./firebase/FirebaseConfig.js";
 import VerifyEmail from "./pages/admin/VerifyEmail.jsx";
 import Profile from "./pages/admin/Profile.jsx";
 import PrivateRoute from "./pages/admin/PrivateRoute.jsx";
 
 function App() {
 
-    const [currentUser, setCurrentUser] = useState(null);
+    const {currentUser, setCurrentUser} = useAuthValue();
     const [timeActive, setTimeActive] = useState(false);
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            setCurrentUser(user)
-        })
-    }, []);
+
+
 
     return (
         <AuthProvider value={{currentUser, timeActive, setTimeActive}}>
