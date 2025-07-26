@@ -5,40 +5,22 @@
     margin: 0 1rem;
 }
 
-.carousel-nav-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    height: 50px;
-    width: 50px;
-    font-size: 2.5rem;
-    cursor: pointer;
-}
-
-.carousel-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
 .carousel-thumbnails {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 1rem 0;
-    align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 
 .thumbnail-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: var(--color-secondary);
-    width: 230px;
     height: 150px;
-    margin: 0 1rem;
+    width: 230px;
+    margin: 0 auto;
     border-radius: 15px;
     color: var(--text);
     font-weight: bolder;
@@ -85,7 +67,7 @@
         flex-wrap: wrap;
     }
     .thumbnail-wrapper {
-        width: 100px;
-        height: 140px;
+        flex: 1 1 100px;
+        height: 120px;
     }
 }

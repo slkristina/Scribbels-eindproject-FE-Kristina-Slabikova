@@ -1,14 +1,15 @@
 import React from "react";
 import './Filter.css';
 
-function Filter({omgevingen}){
+function Filter({omgevingen, selectedSeizoen, selectedOmgeving, onSeizoenChange, onOmgevingChange}){
     return (
         <div className="filter-container">
             <div className="filter-category">
                 <label htmlFor="season-filter">
                     Seizoen
                 </label>
-                <select id="season-filter">
+                <select id="season-filter" value={selectedSeizoen} onChange={e => onSeizoenChange(e.target.value)}>
+                    <option value="Algemeen">Alle seizoenen</option>
                     <option value="Algemeen">Algemeen</option>
                     <option value="Lente">Lente</option>
                     <option value="Zomer">Zomer</option>
@@ -21,9 +22,10 @@ function Filter({omgevingen}){
                 <label htmlFor="surrounding-filter">
                     Omgeving
                 </label>
-                <select id="surrounding-filter">
+                <select id="surrounding-filter" value={selectedOmgeving} onChange={e => onOmgevingChange(e.target.value)}>
+                    <option value="">Alle omgevingen</option>
                     {omgevingen && omgevingen
-                        .map(omgeving => <option value={omgeving}>{omgeving}</option>
+                        .map(omgeving => <option key={omgeving} value={omgeving}>{omgeving}</option>
                         )}
                 </select>
             </div>
