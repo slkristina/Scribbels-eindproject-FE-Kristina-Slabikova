@@ -8,6 +8,7 @@ function Carousel() {
     const [adventureData, setAdventureData] = useState([]);
     const [selectedSeizoen, setSelectedSeizoen] = useState("");
     const [selectedOmgeving, setSelectedOmgeving] = useState("");
+    const [searchWord, setSearchWord] = useState("");
 
     const omgevingen = adventureData
         .flatMap(({omgeving}) =>
@@ -45,8 +46,9 @@ function Carousel() {
     const filteredAdventures = adventureData.filter(adventure => {
         const validSeizoen = selectedSeizoen === "" || adventure.seizoen.includes(selectedSeizoen);
         const validOmgeving = selectedOmgeving === "" || adventure.omgeving.includes(selectedOmgeving);
+        const validSearch = searchWord === "" || adventure.title.toLowerCase().includes(searchWord.toLowerCase());
 
-        return validOmgeving && validSeizoen;
+        return validOmgeving && validSeizoen && validSearch;
     })
 
     const renderedThumbnails = filteredAdventures
@@ -74,7 +76,6 @@ function Carousel() {
         ))
     ;
 
-
     return (
         <>
             <Filter
@@ -94,7 +95,5 @@ function Carousel() {
         </>
     )
 }
-
-
 
 export default Carousel;

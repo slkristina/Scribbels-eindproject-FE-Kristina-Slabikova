@@ -6,8 +6,8 @@ function AdventuresPage() {
         <>
             <div className="container">
                 <h2>
-                    Je kunt onze verhaaltjes (voor)lezen en beluisteren op YouTube en Spotify. Of download de e-book van
-                    het verhaaltje.
+                    Je kunt onze verhaaltjes (voor)lezen en beluisteren op YouTube en Spotify.
+                    Of download de e-book van het verhaaltje.
                 </h2>
 
                 <Carousel />

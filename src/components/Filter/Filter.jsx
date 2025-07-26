@@ -1,7 +1,14 @@
 import React from "react";
 import './Filter.css';
 
-function Filter({omgevingen, selectedSeizoen, selectedOmgeving, onSeizoenChange, onOmgevingChange}){
+function Filter({
+                    omgevingen,
+                    selectedSeizoen,
+                    selectedOmgeving,
+                    onSeizoenChange,
+                    onOmgevingChange,
+                    }) {
+
     return (
         <div className="filter-container">
             <div className="filter-category">

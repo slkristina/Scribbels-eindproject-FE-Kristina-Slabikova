@@ -1,15 +1,24 @@
 import './Navbar.css'
 import {Link, useMatch, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
+import Searchbar from "../Searchbar/Searchbar.jsx";
+import React, {useState} from "react";
 
 function Navbar() {
+
+    const [searchWord, setSearchWord] = useState("");
+
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
                 <img src={'/assets/Logo-menu.png'} alt="Scribbels Logo"/>
             </Link>
             <li className="searchbar">
-                <Link to={"/"}>Searchbar</Link>
+                <Searchbar
+                    onSearchSubmit={searchWord}
+                    onSearchChange={setSearchWord}
+                    searchWord={searchWord}
+                />
             </li>
 
             <ul className={"navbar-links"}>
