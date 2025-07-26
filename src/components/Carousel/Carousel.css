@@ -58,9 +58,6 @@
     border-radius: 15px;
 }
 
-.thumbnail-image:hover {
-    cursor: pointer;
-}
 
 @media (max-width: 650px) {
     .carousel-thumbnails {
