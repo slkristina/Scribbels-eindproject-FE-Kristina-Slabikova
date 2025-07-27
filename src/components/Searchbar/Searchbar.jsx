@@ -16,7 +16,7 @@ function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
                 id="searchbar-input"
                 type="text"
                 value={searchWord}
-                placeholder="Zoek een verhaal"
+                placeholder="Zoek een verhaal op titel"
                 className="searchbar-input"
                 onChange={(e) => onSearchChange(e.target.value)}
                 onKeyDown={handleEnterSearch}

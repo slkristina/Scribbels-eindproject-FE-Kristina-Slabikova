@@ -9,11 +9,12 @@ label {
 }
 
 .searchbar-input {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     border: 1px solid var(--accent-green);
     border-radius: 10px;
     font-size: 1rem;
-    max-width: 200px;
+    max-width: 210px;
+    text-align: left;
 }
 
 @media (max-width: 500px) {

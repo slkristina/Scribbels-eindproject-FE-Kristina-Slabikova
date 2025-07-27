@@ -1,15 +1,9 @@
 import './Navbar.css'
 import {Link, useMatch, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
-import React, {useState} from "react";
+import React from "react";
 
 function Navbar() {
-
-    const [searchWord, setSearchWord] = useState("");
-
-    function handleSearchSubmit() {
-        console.log("Search is submitted:", searchWord);
-    }
 
     return (
         <nav className={"navbar"}>
