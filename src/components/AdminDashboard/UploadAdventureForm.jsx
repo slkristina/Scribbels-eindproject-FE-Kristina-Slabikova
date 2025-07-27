@@ -20,10 +20,11 @@ function UploadAdventureForm() {
         try {
             const data = {
                 title,
-                youtube,
-                spotify,
-                season,
-                surrounding,
+                youtube_url: youtube,
+                spotify_url:spotify,
+                seizoen: [season],
+                omgeving: [surrounding],
+                thumbnail_url: null,
                 createdAt: new Date()
             };
 
@@ -47,6 +48,7 @@ function UploadAdventureForm() {
                 Titel (verplicht)
                 <input
                     type="text"
+                    name="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
@@ -58,6 +60,7 @@ function UploadAdventureForm() {
                 <input
                     type="url"
                     value={youtube}
+                    name="youtube_url"
                     onChange={(e) => setYoutube(e.target.value)}
                     required
                 />
@@ -68,6 +71,7 @@ function UploadAdventureForm() {
                 <input
                     type="url"
                     value={spotify}
+                    name="spotify_url"
                     onChange={(e) => setSpotify(e.target.value)}
                     required
                 />

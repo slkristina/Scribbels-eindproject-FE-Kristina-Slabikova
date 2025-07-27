@@ -1,14 +1,14 @@
 import './Searchbar.css';
 import React from "react";
 
-function Searchbar({searchWord, onSearchChange, onSearchSubmit }) {
+function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
 
     function handleEnterSearch(event) {
-        if (event.key !== 'Enter') {
-            return;
+        if (event.key === 'Enter') {
+            onSearchSubmit();
         }
-        onSearchSubmit();
     }
+
 
     return (
         <div className="searchbar-container">
