@@ -1,12 +1,21 @@
-# React + Vite
+#Welkom bij de Scribbels App!
+Scribbels zijn een leuke dierenverhaaltjes voor kinderen vanaf 3 jaar. Je kunt de verhalen bekijken, beluisteren of lezen zoals je wilt!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Homepagina Screenshot](./public/assets/homepagina-screenshot.png)
 
-Currently, two official plugins are available:
+Dit project is opgezet met behulp van React
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Zorg ervoor dat je Node.js en NPM geïnstalleerd hebt.
 
-## Expanding the ESLint configuration
+#Installatie:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Stap 1. npm install
+Stap 2. npm run dev
+Stap 3. open the app by clicking on link that appeared in your terminal or insert this link to your browser: http://localhost:5173
+
+API key: AIzaSyC1amjd3zL34JGkHpdeGnEQKqmGC5SACKU
+
+#Test credentials:
+
+E-mailadres: kristina.slabikova@gmail.com
+Password: Test@123!
