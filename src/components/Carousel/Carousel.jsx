@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import './Carousel.css';
 import Filter from "../Filter/Filter.jsx";
+import Searchbar from "../Searchbar/Searchbar.jsx";
 
 function Carousel() {
 
@@ -9,6 +10,10 @@ function Carousel() {
     const [selectedSeizoen, setSelectedSeizoen] = useState("");
     const [selectedOmgeving, setSelectedOmgeving] = useState("");
     const [searchWord, setSearchWord] = useState("");
+
+    function handleEnterSearch() {
+        console.log("search is submitted", searchWord);
+    }
 
     const omgevingen = adventureData
         .flatMap(({omgeving}) =>
@@ -28,8 +33,8 @@ function Carousel() {
                 const adventures = response.data.documents?.map(doc => ({
                     id: doc.name.split("/").pop(),
                     title: doc.fields?.title?.stringValue || "",
-                    videoUrl: doc.fields?.youtube_url?.stringValue || null,
-                    audioUrl: doc.fields?.spotify_url?.stringValue || null,
+                    youtubeUrl: doc.fields?.youtube_url?.stringValue || null,
+                    spotifyUrl: doc.fields?.spotify_url?.stringValue || null,
                     thumbnailUrl: doc.fields?.thumbnail_url?.stringValue || null,
                     omgeving: doc.fields?.omgeving?.arrayValue?.values?.map(v => v.stringValue) || [],
                     seizoen: doc.fields?.seizoen?.arrayValue?.values?.map(v => v.stringValue) || [],
@@ -53,28 +58,36 @@ function Carousel() {
 
     const renderedThumbnails = filteredAdventures
         .map((adventure, index) => (
-            <div className="thumbnail-card" key={adventure.id || index}>
-                <div className="thumbnail-wrapper">
-                    <img
-                        src={adventure.thumbnailUrl}
-                        alt={adventure.title}
-                        className="thumbnail-image"
-                    />
-                </div>
-                <div className="thumbnail-buttons">
-                    <a target="_blank" rel="noopener noreferrer" href={adventure.videoUrl}>
+        <div className="thumbnail-card" key={adventure.id || index}>
+            <div className="thumbnail-wrapper">
+                <img
+                    src={adventure.thumbnailUrl}
+                    alt={adventure.title}
+                    className="thumbnail-image"
+                />
+            </div>
+            <div className="thumbnail-buttons">
+                {adventure.youtubeUrl && (
+                    <a target="_blank" rel="noopener noreferrer" href={adventure.youtubeUrl}>
                         <button>📺</button>
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href={adventure.audioUrl}>
+                )}
+
+                {adventure.spotifyUrl && (
+                    <a target="_blank" rel="noopener noreferrer" href={adventure.spotifyUrl}>
                         <button>🎧</button>
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href="#">
-                        <button>📖</button>
-                    </a>
-                </div>
+                )}
+
+                <a target="_blank" rel="noopener noreferrer" href="#">
+                    <button>📖</button>
+                </a>
             </div>
-        ))
+        </div>
+    )
+)
     ;
+
 
     return (
         <>
@@ -84,6 +97,11 @@ function Carousel() {
                 selectedOmgeving={selectedOmgeving}
                 onSeizoenChange={setSelectedSeizoen}
                 onOmgevingChange={setSelectedOmgeving}
+            />
+            <Searchbar
+                onSearchSubmit={handleEnterSearch}
+                onSearchChange={setSearchWord}
+                searchWord={searchWord}
             />
             <div className="container">
                 <div className="carousel-wrapper">

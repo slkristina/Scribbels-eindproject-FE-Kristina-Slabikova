@@ -1,14 +1,14 @@
 import './Searchbar.css';
 import React from "react";
 
-function Searchbar({searchWord, onSearchChange, onSearchSubmit }) {
+function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
 
     function handleEnterSearch(event) {
-        if (event.key !== 'Enter') {
-            return;
+        if (event.key === 'Enter') {
+            onSearchSubmit();
         }
-        onSearchSubmit();
     }
+
 
     return (
         <div className="searchbar-container">
@@ -16,7 +16,7 @@ function Searchbar({searchWord, onSearchChange, onSearchSubmit }) {
                 id="searchbar-input"
                 type="text"
                 value={searchWord}
-                placeholder="Zoek een verhaal"
+                placeholder="Zoek een verhaal op titel"
                 className="searchbar-input"
                 onChange={(e) => onSearchChange(e.target.value)}
                 onKeyDown={handleEnterSearch}

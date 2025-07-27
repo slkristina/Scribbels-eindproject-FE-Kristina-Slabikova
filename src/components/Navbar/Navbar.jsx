@@ -1,12 +1,9 @@
 import './Navbar.css'
 import {Link, useMatch, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
-import Searchbar from "../Searchbar/Searchbar.jsx";
-import React, {useState} from "react";
+import React from "react";
 
 function Navbar() {
-
-    const [searchWord, setSearchWord] = useState("");
 
     return (
         <nav className={"navbar"}>
@@ -14,11 +11,7 @@ function Navbar() {
                 <img src={'/assets/Logo-menu.png'} alt="Scribbels Logo"/>
             </Link>
             <li className="searchbar">
-                <Searchbar
-                    onSearchSubmit={searchWord}
-                    onSearchChange={setSearchWord}
-                    searchWord={searchWord}
-                />
+
             </li>
 
             <ul className={"navbar-links"}>
