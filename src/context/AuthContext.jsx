@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from "react";
 import {onAuthStateChanged} from "firebase/auth";
-import {auth} from "../../firebase/FirebaseConfig.js";
+import {auth} from "../firebase/FirebaseConfig.js";
 
 const AuthContext = createContext(undefined);
 
@@ -12,9 +12,6 @@ export function AuthProvider({children, value}) {
             onAuthStateChanged(auth, (user) => {
                 setCurrentUser(user)
             })
-            if (currentUser){
-                console.log(currentUser.getIdToken());
-            }
         }, [setCurrentUser]);
 
 

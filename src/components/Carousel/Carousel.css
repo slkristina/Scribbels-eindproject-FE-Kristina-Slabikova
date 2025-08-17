@@ -58,6 +58,9 @@
     border-radius: 15px;
 }
 
+.pdf-button {
+    display: none;
+}
 
 @media (max-width: 650px) {
     .carousel-thumbnails {

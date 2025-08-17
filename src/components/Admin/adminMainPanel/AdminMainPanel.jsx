@@ -1,5 +1,5 @@
 import "./AdminMainPanel.css";
-import UploadAdventureForm from "./UploadAdventureForm.jsx";
+import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx";
 
 function AdminMainPanel({activeTab}) {
     return (

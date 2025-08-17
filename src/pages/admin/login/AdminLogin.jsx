@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {auth} from "../../firebase/FirebaseConfig.js";
+import {auth} from "../../../firebase/FirebaseConfig.js";
 import {sendEmailVerification, signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
-import {useAuthValue} from "./AuthContext.jsx";
+import {useAuthValue} from "../../../context/AuthContext.jsx";
 import "./AdminLogin.css";
 
 function AdminLogin() {

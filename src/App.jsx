@@ -2,7 +2,7 @@ import './App.css';
 import './styles/global.css';
 import './styles/index.css';
 import {useState} from "react";
-import {AuthProvider, useAuthValue} from "./pages/admin/AuthContext.jsx";
+import {AuthProvider, useAuthValue} from "./context/AuthContext.jsx";
 import {Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './pages/home/Home.jsx';
@@ -12,16 +12,15 @@ import Shop from './pages/shop/Shop.jsx';
 import Team from './pages/team/Team.jsx';
 import Contact from './pages/contact/Contact.jsx';
 import AdminPage from "./pages/admin/AdminPage.jsx";
-import AdminLogin from "./pages/admin/AdminLogin.jsx";
-import AdminRegistration from "./pages/admin/AdminRegistration.jsx";
+import AdminLogin from "./pages/admin/login/AdminLogin.jsx";
+import AdminRegistration from "./pages/admin/register/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import VerifyEmail from "./pages/admin/VerifyEmail.jsx";
-import Profile from "./pages/admin/Profile.jsx";
 import PrivateRoute from "./pages/admin/PrivateRoute.jsx";
 
 function App() {
 
-    const {currentUser, setCurrentUser} = useAuthValue();
+    const { currentUser } = useAuthValue();
     const [timeActive, setTimeActive] = useState(false);
 
 
@@ -50,14 +49,6 @@ function App() {
                             <Route path="/login" element={<AdminLogin/>}/>
                             <Route path="/register" element={<AdminRegistration/>}/>
                             <Route path="/verify-email" element={<VerifyEmail/>}/>
-                            <Route
-                                path="/profile"
-                                element={
-                                    <PrivateRoute>
-                                        <Profile />
-                                    </PrivateRoute>
-                                }
-                            />
                         </Routes>
                     </div>
                 </main>

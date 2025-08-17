@@ -1,4 +1,4 @@
-import {useAuthValue} from "./AuthContext.jsx";
+import {useAuthValue} from "../../context/AuthContext.jsx";
 import {useEffect, useState} from "react";
 import {auth} from "../../firebase/FirebaseConfig.js";
 import {sendEmailVerification} from "firebase/auth";

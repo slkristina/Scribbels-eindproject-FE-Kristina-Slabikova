@@ -1,5 +1,6 @@
 import "./Home.css";
 import heroImage from '/assets/Scribbels-hero.png';
+import {Link} from "react-router-dom";
 
 function Home() {
     return (
@@ -22,9 +23,9 @@ function Home() {
                     veel
                     enthousiasme en plezier onze tijd en energie in.
                 </p>
-                <button className="btn">
+                <Link to="/verhaaltjes" className="btn">
                     Ga direct naar de verhaaltjes
-                </button>
+                </Link>
             </div>
         </div>
     );
