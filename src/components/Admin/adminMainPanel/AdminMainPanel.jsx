@@ -1,5 +1,6 @@
 import "./AdminMainPanel.css";
 import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx";
+import MediaManager from "../mediaManager/MediaManager.jsx";
 
 function AdminMainPanel({activeTab}) {
     return (
@@ -23,9 +24,7 @@ function AdminMainPanel({activeTab}) {
 
             {activeTab === "mediaManager" && (
                 <div>
-                    <h1>
-                        Media Manager
-                    </h1>
+                    <MediaManager/>
                 </div>
             )}
 
