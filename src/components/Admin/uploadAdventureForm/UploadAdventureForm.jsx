@@ -19,7 +19,7 @@ function UploadAdventureForm() {
 
         try {
             const data = {
-                title,
+                title: title,
                 youtube_url: youtube,
                 spotify_url:spotify,
                 seizoen: [season],
