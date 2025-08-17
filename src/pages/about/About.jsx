@@ -6,10 +6,10 @@ function About() {
     return (
         <>
             <div className="container">
-                <h2>Wat zijn Scribbels?</h2>
-
+                <button className="accordion">Wat zijn Scribbels?</button>
+                <div className="panel">
                 <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
-
+                </div>
                     <ul className="bullet-points">
                         <li><img src={bulletPoint} alt="Bullet point"/>Voor kinderen vanaf drie jaar</li>
                         <li><img src={bulletPoint} alt="Bullet point"/>Per verhaal 3-6 minuten (voor)lees-/luisterplezier</li>

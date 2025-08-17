@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import AdminSidebar from "./AdminSidebar.jsx";
-import AdminMainPanel from "./AdminMainPanel.jsx";
+import AdminSidebar from "../adminSideBar/AdminSidebar.jsx";
+import AdminMainPanel from "../adminMainPanel/AdminMainPanel.jsx";
 import "./AdminDashboard.css";
 
 function AdminDashboard() {

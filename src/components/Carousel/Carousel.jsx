@@ -79,7 +79,7 @@ function Carousel() {
                     </a>
                 )}
 
-                <a target="_blank" rel="noopener noreferrer" href="#">
+                <a className={'pdf-button'} target="_blank" rel="noopener noreferrer" href="#">
                     <button>📖</button>
                 </a>
             </div>

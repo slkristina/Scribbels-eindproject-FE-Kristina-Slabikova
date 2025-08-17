@@ -1,3 +1,14 @@
+.accordion {
+    background-color: var(--color-primary);
+    color: var(--text);
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    width: 50%;
+    border: none;
+
+}
+
+
 .bullet-points {
     list-style-type: none;
     padding-left: 0;

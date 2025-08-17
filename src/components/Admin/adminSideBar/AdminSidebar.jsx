@@ -1,6 +1,6 @@
 import React from "react";
 import "./AdminSidebar.css";
-import {auth} from "../../firebase/FirebaseConfig.js";
+import {auth} from "../../../firebase/FirebaseConfig.js";
 import {useNavigate} from "react-router-dom";
 
 function AdminSidebar({activeTab, setActiveTab}) {

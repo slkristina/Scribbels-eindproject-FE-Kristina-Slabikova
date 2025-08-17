@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth"
-import {auth} from "../../firebase/FirebaseConfig.js";
+import {auth} from "../../../firebase/FirebaseConfig.js";
 import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
-import {useAuthValue} from "./AuthContext.jsx";
+import {useAuthValue} from "../../../context/AuthContext.jsx";
 
 function AdminRegistration() {
     console.log("register called");
