@@ -1,10 +1,3 @@
-.thumbnail-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 1rem;
-}
-
 .carousel-thumbnails {
     display: flex;
     flex-wrap: wrap;
@@ -14,60 +7,9 @@
     padding: 1rem;
 }
 
-.thumbnail-wrapper {
-    display: flex;
-    justify-content: center;
-    background-color: var(--color-secondary);
-    height: 150px;
-    width: 230px;
-    margin: 0 auto;
-    border-radius: 15px;
-    color: var(--text);
-    font-weight: bolder;
-    border: 1px solid var(--accent-green);
-}
-
-.thumbnail-wrapper:hover {
-    transform: scale(1.15);
-    z-index: 1;
-}
-
-.thumbnail-buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
-
-.thumbnail-buttons button {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    border-radius: 5px;
-    padding: 0;
-    text-align: center;
-}
-
-.thumbnail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-color: var(--color-secondary);
-    border-radius: 15px;
-}
-
-.pdf-button {
-    display: none;
-}
-
 @media (max-width: 650px) {
     .carousel-thumbnails {
         flex-wrap: wrap;
     }
-    .thumbnail-wrapper {
-        flex: 1 1 100px;
-        height: 120px;
-    }
+
 }
