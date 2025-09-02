@@ -57,9 +57,6 @@ function Carousel() {
         return validOmgeving && validSeizoen && validSearch;
     })
 
-    const renderedThumbnails = filteredAdventures
-        .map((adventure, index) => <ThumbnailCard adventure={adventure} index={index}/>);
-
     return (
         <>
             <Filter
@@ -77,7 +74,10 @@ function Carousel() {
             <div className="container">
                 <div className="carousel-wrapper">
                     <div className="carousel-thumbnails">
-                        {renderedThumbnails}
+                        {filteredAdventures
+                            .map((adventure, index) => {
+                                return <ThumbnailCard adventure={adventure} index={index}/>
+                            })};
                     </div>
                 </div>
             </div>

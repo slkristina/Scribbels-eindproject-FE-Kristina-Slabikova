@@ -23,8 +23,6 @@ function Messages({name, email, message}) {
             sendMessageToFirebase();
         },
         []);
-
-    return
 }
 
 export default Messages;
