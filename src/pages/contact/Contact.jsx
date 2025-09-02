@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import './Contact.css';
-import {addDoc, collection} from "firebase/firestore";
-import {db} from "../../firebase/FirebaseConfig.js";
+import Messages from "../../components/Messages/Messages.jsx";
 
 function Contact() {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [message, setMessage] = useState("")
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [submitted, setSubmitted] = useState(false);
 
     function handleReset() {
-        setName("")
-        setEmail("")
-        setMessage("")
+        setName("");
+        setEmail("");
+        setMessage("");
     }
 
     async function handleSubmit(event) {
@@ -22,27 +22,16 @@ function Contact() {
             return;
         }
 
-        const data = {
-            name: name,
-            email: email,
-            message: message,
-            createdAt: new Date(),
-
-        };
-
-        await addDoc(collection(db, "messages"), data)
-            .then(() => alert("Bericht is succesvol verzonden"))
-            .then(() => handleReset())
-            .catch(e => console.error(e))
+        setSubmitted(true);
     }
 
     return (
         <div className="container">
             <h2>
                 Heb je een vraag, opmerking of wil je iets leuks delen? Stuur ons gerust een bericht. Je krijgt
-                altijd
-                antwoord van ons.
+                altijd antwoord van ons.
             </h2>
+
             <form className="contact-container" onSubmit={handleSubmit}>
                 <div>
                     <label>
@@ -50,7 +39,7 @@ function Contact() {
                         <input placeholder="Jouw naam"
                                type="text"
                                name="name"
-                               onChange={(e) =>  setName(e.target.value)}
+                               onChange={(e) => setName(e.target.value)}
                                required
                         />
                     </label>
@@ -63,8 +52,9 @@ function Contact() {
                             placeholder="Jouw e-mail"
                             type="email"
                             name="email"
-                            onChange={(e) =>  setEmail(e.target.value)}
-                            required/>
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
                     </label>
                 </div>
 
@@ -75,7 +65,7 @@ function Contact() {
                             placeholder="Voer hier uw tekst in"
                             name="message"
                             rows="8"
-                            onChange={(e) =>  setMessage(e.target.value)}
+                            onChange={(e) => setMessage(e.target.value)}
                             required/>
                     </label>
                 </div>
@@ -92,6 +82,14 @@ function Contact() {
                     </button>
                 </div>
             </form>
+
+            {submitted && (
+                <Messages
+                    name={name}
+                    email={email}
+                    message={message}
+                />
+            )}
         </div>
     )
 }
