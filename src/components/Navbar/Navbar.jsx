@@ -10,9 +10,6 @@ function Navbar() {
             <Link to="/" className="site-logo">
                 <img src={'/assets/Logo-menu.png'} alt="Scribbels Logo"/>
             </Link>
-            <li className="searchbar">
-
-            </li>
 
             <ul className={"navbar-links"}>
                 <CustomLink to={"/"}>Home</CustomLink>
@@ -21,6 +18,10 @@ function Navbar() {
                 <CustomLink to={"/over-de-makers"}>Over de Makers</CustomLink>
                 <CustomLink to={"/winkeltje"}>Winkeltje</CustomLink>
                 <CustomLink to={"/contact"}>Contact</CustomLink>
+                <div className="nav-account-buttons">
+                <CustomLink to={"/login"}>Inloggen</CustomLink>
+                <CustomLink to={"/register"}>Registreren</CustomLink>
+                </div>
             </ul>
 
             <div className="hamburger-btn-container">
