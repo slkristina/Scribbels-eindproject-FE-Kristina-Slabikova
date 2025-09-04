@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {Link, useMatch, useResolvedPath } from "react-router-dom";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import "./HamburgerMenu.css";
 
 
@@ -23,6 +23,8 @@ function HamburgerMenu() {
                     <li><Link to={"/over-de-makers"} onClick={() => setIsOpen(false)}>Over de Makers</Link></li>
                     <li><Link to={"/winkeltje"} onClick={() => setIsOpen(false)}>Winkeltje</Link></li>
                     <li><Link to={"/contact"} onClick={() => setIsOpen(false)}>Contact</Link></li>
+                    <li><Link to={"/login"} onClick={() => setIsOpen(false)}>Inloggen</Link></li>
+                    <li><Link to={"/register"} onClick={() => setIsOpen(false)}>Registreren</Link></li>
                 </ul>
             )}
         </div>
