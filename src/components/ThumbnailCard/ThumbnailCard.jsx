@@ -1,32 +1,34 @@
 import React from 'react';
 import './ThumbnailCard.css'
 
-function ThumbnailCard({adventure, index}) {
+function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, coloringBookUrl}) {
     return (
-        <div className="thumbnail-card" key={adventure.id || index}>
+        <div className="thumbnail-card">
             <div className="thumbnail-wrapper">
                 <img
-                    src={adventure.thumbnailUrl}
-                    alt={adventure.title}
+                    src={thumbnailUrl || coloringBookUrl }
+                    alt={title}
                     className="thumbnail-image"
                 />
             </div>
             <div className="thumbnail-buttons">
-                {adventure.youtubeUrl && (
-                    <a target="_blank" rel="noopener noreferrer" href={adventure.youtubeUrl}>
+                {youtubeUrl && (
+                    <a target="_blank" rel="noopener noreferrer" href={youtubeUrl}>
                         <button>📺</button>
                     </a>
                 )}
 
-                {adventure.spotifyUrl && (
-                    <a target="_blank" rel="noopener noreferrer" href={adventure.spotifyUrl}>
+                {spotifyUrl && (
+                    <a target="_blank" rel="noopener noreferrer" href={spotifyUrl}>
                         <button>🎧</button>
                     </a>
                 )}
 
-                <a className={'pdf-button'} target="_blank" rel="noopener noreferrer" href="#">
+                {pdfUrl && (
+                <a className={'pdf-button'} target="_blank" rel="noopener noreferrer" href={pdfUrl}>
                     <button>📖</button>
                 </a>
+                )}
             </div>
         </div>
     );
