@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {auth} from "../../../firebase/FirebaseConfig.js";
+import React, {useEffect, useState} from "react";
+import {auth} from "../../../firebase/firebaseconfig.js";
 import {sendEmailVerification, signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 import {useAuthValue} from "../../../context/AuthContext.jsx";
@@ -10,7 +10,15 @@ function AdminLogin() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const {setTimeActive} = useAuthValue();
+    const {currentUser, setTimeActive} = useAuthValue();
+
+    useEffect(() => {
+        console.log(currentUser)
+        if (currentUser) {
+            navigate("/admin")
+        }
+    }, []);
+
 
     const login = e => {
         e.preventDefault();

@@ -5,13 +5,17 @@ function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, col
     return (
         <div className="thumbnail-card">
             <div className="thumbnail-wrapper">
-                <img
-                    src={thumbnailUrl || coloringBookUrl }
-                    alt={title}
-                    className="thumbnail-image"
-                />
+                <img src={thumbnailUrl} alt={title} className="thumbnail-image"/>
             </div>
             <div className="thumbnail-buttons">
+                 {coloringBookUrl && (
+                    <a target="_blank" rel="noopener noreferrer" href={coloringBookUrl}>
+                        <button>
+                            <img src="/assets/downloads-btn.png" alt="Download" className="downloads-btn-image" />
+                        </button>
+                    </a>
+                )}
+
                 {youtubeUrl && (
                     <a target="_blank" rel="noopener noreferrer" href={youtubeUrl}>
                         <button>📺</button>
@@ -25,13 +29,14 @@ function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, col
                 )}
 
                 {pdfUrl && (
-                <a className={'pdf-button'} target="_blank" rel="noopener noreferrer" href={pdfUrl}>
-                    <button>📖</button>
-                </a>
+                    <a className="pdf-button" target="_blank" rel="noopener noreferrer" href={pdfUrl}>
+                        <button>📖</button>
+                    </a>
                 )}
             </div>
         </div>
-    );
+)
+    ;
 }
 
 export default ThumbnailCard;

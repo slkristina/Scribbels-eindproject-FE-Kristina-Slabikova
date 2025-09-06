@@ -20,11 +20,23 @@
     background-color: var(--color-secondary);
     height: 150px;
     width: 230px;
-    margin: 0 auto;
     border-radius: 15px;
     color: var(--text);
     font-weight: bolder;
     border: 1px solid var(--accent-green);
+}
+
+.thumbnail-wrapper a {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.download-btn-image {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
 }
 
 .thumbnail-wrapper:hover {
@@ -41,7 +53,14 @@
     margin-top: 1.5rem;
 }
 
-
+.downloads-btn-image {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 0;
+    text-align: center;
+}
 
 .thumbnail-buttons button {
     width: 40px;

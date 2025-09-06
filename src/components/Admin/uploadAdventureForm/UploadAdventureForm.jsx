@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {db} from "../../../firebase/FirebaseConfig.js";
+import {db} from "../../../firebase/firebaseconfig.js";
 import {addDoc, collection} from "firebase/firestore";
 
 function UploadAdventureForm() {

@@ -1,6 +1,6 @@
 import './Shop.css';
 import ThumbnailCard from "../../components/ThumbnailCard/ThumbnailCard.jsx";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function Shop() {
@@ -10,13 +10,13 @@ function Shop() {
     useEffect(() => {
         axios
             .get("https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/coloringBooks")
-            .then(response => {
-                console.log(response.data);
+            .then(async response => {
                 const coloringBooks = response.data.documents?.map(doc => ({
                     id: doc.name.split("/").pop(),
                     title: doc.fields?.title?.stringValue || "",
-                    coloringBookUrl: doc.fields?.coloring_book_url?.stringValue || null,
+                    storagePath: doc.fields?.coloring_book_url?.stringValue || null,
                 })) || [];
+
 
                 setColoringBooksData(coloringBooks);
             })
@@ -43,11 +43,12 @@ function Shop() {
                     .map((book) => (
                         <ThumbnailCard
                             key={book.id}
-                            coloringBookUrl={book.coloringBookUrl}
+                            coloringBookUrl={book.storagePath}
                             title={book.title}
                         />
                     ))
                 }
+
             </div>
             <section className="donation">
                 Wil je ons helpen?
