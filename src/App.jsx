@@ -15,7 +15,6 @@ import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/login/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/register/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import VerifyEmail from "./pages/admin/VerifyEmail.jsx";
 import PrivateRoute from "./pages/admin/PrivateRoute.jsx";
 
 function App() {
@@ -48,7 +47,6 @@ function App() {
                             />
                             <Route path="/login" element={<AdminLogin/>}/>
                             <Route path="/register" element={<AdminRegistration/>}/>
-                            <Route path="/verify-email" element={<VerifyEmail/>}/>
                         </Routes>
                     </div>
                 </main>
