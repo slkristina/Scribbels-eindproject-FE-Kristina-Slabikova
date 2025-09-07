@@ -1,6 +1,30 @@
 import './Shop.css';
+import ThumbnailCard from "../../components/ThumbnailCard/ThumbnailCard.jsx";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 function Shop() {
+
+    const [coloringBooksData, setColoringBooksData] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/coloringBooks")
+            .then(async response => {
+                const coloringBooks = response.data.documents?.map(doc => ({
+                    id: doc.name.split("/").pop(),
+                    title: doc.fields?.title?.stringValue || "",
+                    storagePath: doc.fields?.coloring_book_url?.stringValue || null,
+                })) || [];
+
+
+                setColoringBooksData(coloringBooks);
+            })
+            .catch(err => {
+                console.log("error fetching coloring books:", err);
+            });
+    }, []);
+
     return (
         <div className="container">
             <p>
@@ -14,16 +38,25 @@ function Shop() {
             <h2>
                 Onze kleurplaaten
             </h2>
-            <h3>
-                Momenteel in aanbouw ...
-            </h3>
-            <p className="donation">
+            <div className="coloring-books">
+                {coloringBooksData
+                    .map((book) => (
+                        <ThumbnailCard
+                            key={book.id}
+                            coloringBookUrl={book.storagePath}
+                            title={book.title}
+                        />
+                    ))
+                }
+
+            </div>
+            <section className="donation">
                 Wil je ons helpen?
                 Wij maken Scribbels Dierenverhaaltjes met veel plezier en passie. Iedereen heeft gratis toegang tot onze
                 verhaaltjes. We vinden het belangrijk dat alle kinderen en volwassenen ervan kunnen genieten.
                 Met een donatie help je ons om nieuwe Scribbels te blijven publiceren. We zijn dankbaar voor elk bedrag.
                 Alvast bedankt!
-            </p>
+            </section>
         </div>
     )
 }

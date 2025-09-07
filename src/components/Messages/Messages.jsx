@@ -1,5 +1,5 @@
 import {addDoc, collection} from "firebase/firestore";
-import {db} from "../../firebase/FirebaseConfig.js";
+import {db} from "../../firebase/firebaseconfig.js";
 import {useEffect} from "react";
 
 
