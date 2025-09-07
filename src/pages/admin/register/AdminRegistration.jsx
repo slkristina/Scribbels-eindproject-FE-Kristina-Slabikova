@@ -14,7 +14,7 @@ function AdminRegistration() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const {setTimeActive} = useAuthValue();
-    const [successfullyRegistered, setSuccessfullyRegistered] = useState("");
+    const [successfullyRegistered] = useState("");
 
     const validatePassword = () => {
         let isValid = true
