@@ -76,7 +76,9 @@ function Carousel() {
                     <div className="carousel-thumbnails">
                         {filteredAdventures
                             .map((adventure, index) => {
+
                                 return <ThumbnailCard key={adventure.id} {...adventure} index={index}/>
+
                             })};
                     </div>
                 </div>

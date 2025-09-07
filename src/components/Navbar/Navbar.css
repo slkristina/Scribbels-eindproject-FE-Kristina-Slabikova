@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
 }
 
 body {
@@ -16,17 +19,25 @@ body {
     padding: 0 3rem;
 }
 
+.nav-account-buttons {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
+    font-family: 'Gaegu', sans-serif;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+
 .navbar-links {
     display: flex;
     gap: 1rem;
-    list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .hamburger-btn-container {
     display: none;
-    background-color: transparent !important;
+    background-color: transparent
 }
 
 .site-logo {
@@ -41,10 +52,6 @@ body {
     display: block;
 }
 
-.searchbar {
-    list-style: none;
-}
-
 .navbar ul {
     list-style: none;
     padding: 0;
@@ -55,15 +62,12 @@ body {
 .navbar li {
     margin: 0;
     padding: 0;
-    border: none;
     background: transparent;
 }
 
 .navbar a {
-    text-decoration: none;
     color: inherit;
     background-color: var(--color-primary);
-    border: none;
 }
 
 .navbar a.active {
@@ -87,6 +91,12 @@ body {
 
     .container {
         padding: 0 0.5rem;
+    }
+
+    .nav-account-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 }
 
