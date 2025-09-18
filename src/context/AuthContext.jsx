@@ -8,10 +8,9 @@ export function AuthProvider({children}) {
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        const stayLoggedOut = onAuthStateChanged(auth, (user) => {
+        return onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
         });
-        return stayLoggedOut;
     }, []);
 
     return (
