@@ -71,18 +71,18 @@ function Carousel() {
                 onSearchChange={setSearchWord}
                 searchWord={searchWord}
             />
-            <div className="container">
+            <section className="container">
                 <div className="carousel-wrapper">
-                    <div className="carousel-thumbnails">
+                    <ul className="carousel-thumbnails">
                         {filteredAdventures
                             .map((adventure, index) => {
 
                                 return <ThumbnailCard key={adventure.id} {...adventure} index={index}/>
 
                             })};
-                    </div>
+                    </ul>
                 </div>
-            </div>
+            </section>
         </>
     )
 }
