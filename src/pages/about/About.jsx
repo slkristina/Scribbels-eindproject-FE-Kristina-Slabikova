@@ -6,7 +6,7 @@ function About() {
     return (
         <>
             <div className="container">
-                <button className="accordion">Wat zijn Scribbels?</button>
+                <button className="accordion" type="button">Wat zijn Scribbels?</button>
                 <div className="panel">
                 <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
                 </div>
