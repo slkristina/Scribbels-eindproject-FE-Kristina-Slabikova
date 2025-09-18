@@ -3,40 +3,40 @@ import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx"
 
 function AdminMainPanel({activeTab}) {
     return (
-        <div className="main-panel-container">
+        <main className="main-panel-container">
             {activeTab === "uploadAdventure" && (
-                <div>
+                <section>
                     <h1>
                         Nieuw verhaal uploaden
                     </h1>
                     <UploadAdventureForm />
-                </div>
+                </section>
             )}
 
             {activeTab === "uploadColoringPicture" && (
-                <div>
+                <section>
                     <h1>
                         Kleurplaat uploaden
                     </h1>
-                </div>
+                </section>
             )}
 
             {activeTab === "mediaManager" && (
-                <div>
+                <section>
                     <h1>
                         Media Manager
                     </h1>
-                </div>
+                </section>
             )}
 
             {activeTab === "logout" && (
-                <div>
+                <section>
                     <h1>
                         U bent uitgelogd!
                     </h1>
-                </div>
+                </section>
             )}
-        </div>
+        </main>
     );
 }
 
