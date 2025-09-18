@@ -39,20 +39,22 @@ function AdminLogin() {
             <div className="admin-login">
                 <h2>Login Page</h2>
                 <form onSubmit={login} name='login_form'>
-                    <label>
+                    <label htmlFor="email">
                         E-mailadres:
                     </label>
                     <input
+                        id="e-mail"
                         type="email"
                         placeholder="E-mailadres"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <label>
+                    <label htmlFor="password">
                         Password:
                     </label>
                     <input
+                        id="password"
                         type="password"
                         placeholder="Wachtwoord"
                         value={password}
