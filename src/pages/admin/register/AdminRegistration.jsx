@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth"
+import {createUserWithEmailAndPassword} from "firebase/auth"
 import {auth} from "../../../firebase/firebaseconfig.js";
 import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
@@ -35,18 +35,7 @@ function AdminRegistration() {
         if (validatePassword()) {
             console.log("password validation has been passed");
             createUserWithEmailAndPassword(auth, email, password)
-                .then(() => {
-                    console.log("user has been just created:");
-                    sendEmailVerification(auth.currentUser)
-                        .then(() => {
-                            console.log("verification e-mail has been successfully sent");
-                            setTimeActive(true);
-                            navigate('/verify-email');
-                        })
-                        .catch(error => {
-                            alert(error.message);
-                        });
-                })
+                .then(() => navigate("/admin"))
                 .catch((error => {
                     setError(error.message);
                 }));
