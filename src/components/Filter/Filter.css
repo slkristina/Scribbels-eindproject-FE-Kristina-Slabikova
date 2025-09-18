@@ -1,23 +1,33 @@
+
 .filter-container {
+    margin: 0 auto;
+    padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-}
+    width: fit-content;
+  }
 
-.filter-category {
+.filter-category > label {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
 .filter-category label {
     margin-bottom: 0.25rem;
+    text-align: center;
 }
 
-.filter-category select {
+.filter-category > select {
     padding: 0.1rem 0.8rem;
     border-radius: 8px;
     border: 1px solid var(--color-primary);
     font-size: 0.7rem;
-}
+   }
+
