@@ -44,9 +44,10 @@ function UploadAdventureForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>
+            <label htmlFor="title">
                 Titel (verplicht)
                 <input
+                    id="title"
                     type="text"
                     name="title"
                     value={title}
@@ -55,9 +56,10 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
+            <label htmlFor="youtube_url">
                 YouTube-link (verplicht)
                 <input
+                    id="youtube_url"
                     type="url"
                     value={youtube}
                     name="youtube_url"
@@ -66,9 +68,10 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
+            <label htmlFor="spotify_url">
                 Spotify-link (verplicht)
                 <input
+                    id="spotify_url"
                     type="url"
                     value={spotify}
                     name="spotify_url"
@@ -77,10 +80,14 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
+            <fieldset>
+                <legend>Categorieën</legend>
+            <label htmlFor="season">
                 Seizoen
                 <select
-                    value={season} onChange={(e) => setSeason(e.target.value)}>
+                    id="season"
+                    value={season}
+                    onChange={(e) => setSeason(e.target.value)}>
                     <option>Algemeen</option>
                     <option>Lente</option>
                     <option>Zomer</option>
@@ -89,10 +96,12 @@ function UploadAdventureForm() {
                 </select>
             </label>
 
-            <label>
+            <label htmlFor="surrounding">
                 Omgeving
                 <select
-                    value={surrounding} onChange={(e) => setSurrounding(e.target.value)}>
+                    id="surrounding"
+                    value={surrounding}
+                    onChange={(e) => setSurrounding(e.target.value)}>
                     <option>Overig</option>
                     <option>Zee</option>
                     <option>Rivier</option>
@@ -101,6 +110,7 @@ function UploadAdventureForm() {
                     <option>Huis en tuin</option>
                 </select>
             </label>
+            </fieldset>
 
             <button type="submit">
                 Creëren!
