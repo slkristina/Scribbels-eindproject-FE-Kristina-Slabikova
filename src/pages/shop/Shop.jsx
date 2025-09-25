@@ -26,7 +26,7 @@ function Shop() {
     }, []);
 
     return (
-        <div className="container">
+        <main className="container">
             <p>
                 Ons winkeltje is nog een beetje leeg, maar daar komt verandering in! Binnenkort kun je hier leuke
                 Scribbels-dingetjes bestellen of downloaden.
@@ -35,29 +35,32 @@ function Shop() {
                 Wie weet verschijnt jouw tekening op onze Instagram @scribbels.dierenverhaaltjes. We vermelden alleen je
                 voornaam en leeftijd.
             </p>
-            <h2>
-                Onze kleurplaaten
-            </h2>
-            <div className="coloring-books">
-                {coloringBooksData
-                    .map((book) => (
-                        <ThumbnailCard
-                            key={book.id}
-                            coloringBookUrl={book.storagePath}
-                            title={book.title}
-                        />
-                    ))
-                }
 
-            </div>
+            <section className="coloring-books">
+                <h2>
+                    Onze kleurplaaten
+                </h2>
+                <ul>
+                    {coloringBooksData
+                        .map((book) => (
+                            <ThumbnailCard
+                                key={book.id}
+                                coloringBookUrl={book.storagePath}
+                                title={book.title}
+                            />
+                        ))
+                    }
+                </ul>
+            </section>
+
             <section className="donation">
-                Wil je ons helpen?
-                Wij maken Scribbels Dierenverhaaltjes met veel plezier en passie. Iedereen heeft gratis toegang tot onze
+                <h2>Wil je ons helpen?</h2>
+                <p>Wij maken Scribbels Dierenverhaaltjes met veel plezier en passie. Iedereen heeft gratis toegang tot onze
                 verhaaltjes. We vinden het belangrijk dat alle kinderen en volwassenen ervan kunnen genieten.
                 Met een donatie help je ons om nieuwe Scribbels te blijven publiceren. We zijn dankbaar voor elk bedrag.
-                Alvast bedankt!
+                Alvast bedankt!</p>
             </section>
-        </div>
+        </main>
     )
 }
 
