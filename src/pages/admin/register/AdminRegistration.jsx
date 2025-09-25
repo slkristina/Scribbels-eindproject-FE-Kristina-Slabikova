@@ -45,24 +45,6 @@ function AdminRegistration() {
         setConfirmPassword('');
     }
 
-    // const handleRegistration = async (e) => {
-    //     e.preventDefault();
-    //     setError("");
-
-    //     const auth = getAuth();
-
-    //     try {
-    //         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    //         const user = userCredential.user;
-    //         const errorMessage = error.message;
-    //         const errorCode = error.code;
-    //
-    //         setSuccessfullyRegistered("Registration is successful");
-    //     } catch (error) {
-    //         setError("Registration failed");
-    //     }
-    // };
-
 
     function handleReset() {
         setEmail("");
@@ -70,13 +52,13 @@ function AdminRegistration() {
     }
 
     return (
-        <div className="container">
-            <div className="admin-registration-form">
+        <main className="container">
+            <section className="admin-registration-form">
                 <h2>Admin Registratie</h2>
                 <form onSubmit={register} name='registration-form'>
-                    <p>
+                    <label htmlFor="email">
                         E-mailadres:
-                    </p>
+                    </label>
                     <input
                         type="email"
                         placeholder="E-mailadres"
@@ -84,9 +66,9 @@ function AdminRegistration() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <p>
+                    <label htmlFor="password">
                         Password:
-                    </p>
+                    </label>
                     <input
                         type="password"
                         placeholder="Wachtwoord"
@@ -94,9 +76,9 @@ function AdminRegistration() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <p>
+                    <label htmlFor="confirmPassword">
                         Bevestig Wachtwoord:
-                    </p>
+                    </label>
                     <input
                         type="password"
                         placeholder="Bevestig Wachtwoord"
@@ -109,23 +91,10 @@ function AdminRegistration() {
                     <button type={"submit"} onClick={() => console.log("Register button clicked!")}>Registreren</button>
                     <button type="button" onClick={handleReset}>Reset</button>
                 </form>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
-
-// Firebase template:
-// createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) =>{
-//     //Signed up
-//     const user = userCredential.user;
-//     //...
-//     })
-//     .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     //...
-//         });
 
 
 export default AdminRegistration;
