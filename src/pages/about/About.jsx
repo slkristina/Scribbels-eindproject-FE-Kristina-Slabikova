@@ -5,11 +5,11 @@ import bulletPoint from '/assets/bullet-point.png';
 function About() {
     return (
         <>
-            <div className="container">
+            <main className="container">
                 <button className="accordion" type="button">Wat zijn Scribbels?</button>
-                <div className="panel">
-                <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
-                </div>
+                <section className="panel">
+                    <p>Scribbels zijn verrassende en vrolijke verhaaltjes over dieren die samen avonturen beleven.</p>
+                </section>
                     <ul className="bullet-points">
                         <li><img src={bulletPoint} alt="Bullet point"/>Voor kinderen vanaf drie jaar</li>
                         <li><img src={bulletPoint} alt="Bullet point"/>Per verhaal 3-6 minuten (voor)lees-/luisterplezier</li>
@@ -17,18 +17,22 @@ function About() {
 
                 <h2>Wat willen we met Scribbels?</h2>
 
-                <p id="about-quote">"Kinderen met verhalen spelenderwijs helpen (op)groeien."</p>
+                <blockquote id="about-quote">
+                    Kinderen met verhalen spelenderwijs helpen (op)groeien.
+                </blockquote>
 
-                    Via verhalen bouwen we aan de toekomst door bij te dragen aan:
+                    <p>Via verhalen bouwen we aan de toekomst door bij te dragen aan:</p>
 
-                    <ul className="bullet-points">
-                        <li><img src={bulletPoint} alt="Bullet point"/>Taalontwikkeling</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Creativiteit</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Aandacht en focus</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Emotionele groei</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>Natuurkennis</li>
-                        <li><img src={bulletPoint} alt="Bullet point"/>En hopelijk worden ze enthousiast om zelf meer te gaan lezen!</li>
-                    </ul>
+                <ul className="bullet-points">
+                    <li><img src={bulletPoint} alt="Bullet point"/>Taalontwikkeling</li>
+                    <li><img src={bulletPoint} alt="Bullet point"/>Creativiteit</li>
+                    <li><img src={bulletPoint} alt="Bullet point"/>Aandacht en focus</li>
+                    <li><img src={bulletPoint} alt="Bullet point"/>Emotionele groei</li>
+                    <li><img src={bulletPoint} alt="Bullet point"/>Natuurkennis</li>
+                    <li><img src={bulletPoint} alt="Bullet point"/>En hopelijk worden ze enthousiast om zelf meer te
+                        gaan lezen!
+                    </li>
+                </ul>
 
 
                 <h2>Wat maakt Scribbels bijzonder?</h2>
@@ -48,7 +52,7 @@ function About() {
                         <li><img src={bulletPoint} alt="Bullet point"/>Elke twee maanden een nieuw verhaal</li>
                         <li><img src={bulletPoint} alt="Bullet point"/>Uitvoerig getest en verbeterd middels een expert-testpanel</li>
                     </ul>
-            </div>
+            </main>
         </>
     );
 }
