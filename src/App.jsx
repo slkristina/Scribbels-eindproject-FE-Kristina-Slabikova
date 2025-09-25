@@ -15,7 +15,7 @@ import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/login/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/register/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import PrivateRoute from "./components/PrivateRoute.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 
 function App() {
 
