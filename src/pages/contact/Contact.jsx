@@ -46,11 +46,11 @@ function Contact() {
     }
 
     return (
-        <div className="container">
-            <h2>
+        <main className="container">
+            <h1>
                 Heb je een vraag, opmerking of wil je iets leuks delen? Stuur ons gerust een bericht. Je krijgt
                 altijd antwoord van ons.
-            </h2>
+            </h1>
 
             <form className="contact-container" onSubmit={handleSubmit}>
                 <div>
@@ -122,7 +122,7 @@ function Contact() {
                         </button>
                     </div>}
             </form>
-        </div>
+        </main>
     )
 }
 
