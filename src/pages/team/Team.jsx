@@ -5,19 +5,20 @@ import './Team.css';
 
 function Team() {
     return (
-        <div className="container">
-            <h2>
+        <main className="container">
+            <h1>
                 Ontmoet de gepassioneerde makers achter de verhalen
-            </h2>
-            <div className="team-container">
-                <div className="team-member">
+            </h1>
+
+            <section className="team-container">
+                <article className="team-member">
                     <img src={fotoMartien} alt="Martien photo"/>
-                    <h2>
-                        Martien Vosters
-                    </h2>
                     <h3>
-                        verhalenverteller met hart voor kindertaal
+                        Martien Vosters
                     </h3>
+                    <h4>
+                        verhalenverteller met hart voor kindertaal
+                    </h4>
                     <p>
                         Mijn hele leven schrijf ik al verhalen, gewoon voor mezelf. Het liefst op een mooie
                         zomeravond in mijn fijne tuin. Kater Sparrow in de buurt en kikkergekwaak op de achtergrond.
@@ -27,15 +28,16 @@ function Team() {
                         schrijven én te
                         publiceren, wist ik: dit is mijn kans. Zo werd Scribbels geboren.
                     </p>
-                </div>
-                <div className="team-member">
+                </article>
+
+                <article className="team-member">
                     <img src={fotoAstrid} alt="Astrid photo"/>
-                    <h2>
-                        Astrid Butijn
-                    </h2>
                     <h3>
-                        illustrator die dieren tot leven brengt
+                        Astrid Butijn
                     </h3>
+                    <h4>
+                        illustrator die dieren tot leven brengt
+                    </h4>
                     <p>
                         Mijn hele leven teken en schilder ik al graag en veel. Tot een paar jaar geleden was het enkel
                         een
@@ -59,15 +61,16 @@ function Team() {
                         leren
                         over de wereld om hen heen.
                     </p>
-                </div>
-                <div className="team-member">
+                </article>
+
+                <article className="team-member">
                     <img src={fotoRoxanne} alt="Roxanne photo"/>
-                    <h2>
-                        Roxanne Robijns
-                    </h2>
                     <h3>
-                        stemacteur die warmte brengt in elk woord
+                        Roxanne Robijns
                     </h3>
+                    <h4>
+                        stemacteur die warmte brengt in elk woord
+                    </h4>
                     <p>Met veel plezier werk ik als co-auteur, stemacteur en video-editor voor
                         Scribbels Dierenverhaaltjes.
                         Als woordkunstenaar, leefstijlcoach en creatieve ondernemer heb ik altijd een passie gehad voor
@@ -88,9 +91,9 @@ function Team() {
                         kwaliteit én plezier.
                         ‘Een team dat begrijpt hoe kinderen leren, luisteren en verliefd worden op verhalen.’
                     </p>
-                </div>
-            </div>
-        </div>
+                </article>
+            </section>
+        </main>
     )
 }
 
