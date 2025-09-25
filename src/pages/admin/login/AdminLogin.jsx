@@ -35,8 +35,8 @@ function AdminLogin() {
 
 
     return (
-        <div className="container">
-            <div className="admin-login">
+        <main className="container">
+            <section className="admin-login">
                 <h2>Login Page</h2>
                 <form onSubmit={login} name='login_form'>
                     <label htmlFor="email">
@@ -67,8 +67,8 @@ function AdminLogin() {
                         <button type="button" onClick={handleReset}>Reset</button>
                     </div>
                 </form>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 
