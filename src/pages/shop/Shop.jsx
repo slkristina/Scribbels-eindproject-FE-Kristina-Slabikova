@@ -19,6 +19,7 @@ function Shop() {
 
 
                 setColoringBooksData(coloringBooks);
+                console.log(coloringBooksData)
             })
             .catch(err => {
                 console.log("error fetching coloring books:", err);
@@ -44,6 +45,7 @@ function Shop() {
                     {coloringBooksData
                         .map((book) => (
                             <ThumbnailCard
+                                thumbnailUrl={book.storagePath}
                                 key={book.id}
                                 coloringBookUrl={book.storagePath}
                                 title={book.title}
