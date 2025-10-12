@@ -9,7 +9,7 @@ function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, col
             </div>
             <div className="thumbnail-buttons">
                  {coloringBookUrl && (
-                    <a target="_blank" rel="noopener noreferrer" href={coloringBookUrl}>
+                    <a download rel="noopener noreferrer" href={coloringBookUrl}>
                         <button type="button">
                             <img src="/assets/downloads-btn.png" alt="Download" className="downloads-btn-image" />
                         </button>
