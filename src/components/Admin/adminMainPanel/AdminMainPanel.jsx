@@ -29,6 +29,15 @@ function AdminMainPanel({activeTab}) {
                 </section>
             )}
 
+
+            {activeTab === "messageManager" && (
+                <section>
+                    <h1>
+                        Message Manager
+                    </h1>
+                </section>
+            )}
+
             {activeTab === "logout" && (
                 <section>
                     <h1>
