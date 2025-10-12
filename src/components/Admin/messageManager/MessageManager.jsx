@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import MessageCard from "../../MessageCard/MessageCard.jsx";
 
-function MessageManager(props) {
+function MessageManager() {
     const [messageData, setMessageData] = useState([]);
 
     const fetchMessages = async () => {
@@ -29,7 +30,14 @@ function MessageManager(props) {
     }, []);
 
     return (
-        <div></div>
+        <>
+            {messageData ?
+                messageData.map(message => <MessageCard
+                    message={message}/>)
+                :
+                <p>Er zijn geen berichten</p>}
+        </>
+
     );
 }
 

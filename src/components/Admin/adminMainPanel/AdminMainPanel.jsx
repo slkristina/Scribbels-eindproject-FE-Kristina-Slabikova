@@ -1,5 +1,6 @@
 import "./AdminMainPanel.css";
 import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx";
+import MessageManager from "../messageManager/MessageManager.jsx";
 
 function AdminMainPanel({activeTab}) {
     return (
@@ -35,6 +36,7 @@ function AdminMainPanel({activeTab}) {
                     <h1>
                         Message Manager
                     </h1>
+                    <MessageManager />
                 </section>
             )}
 
