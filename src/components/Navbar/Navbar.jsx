@@ -1,12 +1,23 @@
 import './Navbar.css'
-import {Link, useMatch, useResolvedPath} from "react-router-dom";
+import {Link, useMatch, useNavigate, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
 import React from "react";
-import {useAuthValue} from "../../context/AuthContext.jsx";
+import {handleLogout, useAuthValue} from "../../context/AuthContext.jsx";
 
 function Navbar() {
-
     const {currentUser } = useAuthValue();
+    const navigate = useNavigate();
+
+    async function logout(e) {
+        e.preventDefault();
+        try {
+            await handleLogout();
+            navigate("/")
+        } catch (err) {
+            console.error('Logout failed', err);
+        }
+    }
+
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
@@ -27,7 +38,12 @@ function Navbar() {
                         <CustomLink to={"/register"}>Registreren</CustomLink>
                     </>
                     :
-                    <CustomLink to={() => handleLogout}>Uitloggen</CustomLink>
+                    <button
+                        className="link-like-button" // give CSS to look like a link
+                        onClick={logout}
+                    >
+                        Uitloggen
+                    </button>
                 }
             </ul>
 
