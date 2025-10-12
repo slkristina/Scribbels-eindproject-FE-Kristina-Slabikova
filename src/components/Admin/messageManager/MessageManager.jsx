@@ -12,10 +12,10 @@ function MessageManager() {
             );
             const messages = response.data.documents?.map(doc => ({
                 id: doc.name.split("/").pop(),
-                name: doc.fields?.title?.stringValue || "",
-                email: doc.fields?.youtube_url?.stringValue || null,
-                message: doc.fields?.spotify_url?.stringValue || null,
-                subject: doc.fields?.thumbnail_url?.stringValue || null,
+                name: doc.fields?.name?.stringValue || "",
+                email: doc.fields?.email?.stringValue || null,
+                message: doc.fields?.message?.stringValue || null,
+                subject: doc.fields?.subject?.stringValue || null,
                 createdAt: doc.fields?.createdAt?.timestampValue || null
             })) || [];
 
@@ -32,8 +32,16 @@ function MessageManager() {
     return (
         <>
             {messageData ?
-                messageData.map(message => <MessageCard
-                    message={message}/>)
+                messageData.map(message => {
+                    return <MessageCard
+                        id={message.id}
+                        timeCreated={message.createdAt}
+                        name={message.name}
+                        email={message.email}
+                        subject={message.subject}
+                        message={message.message}
+                    />
+                })
                 :
                 <p>Er zijn geen berichten</p>}
         </>

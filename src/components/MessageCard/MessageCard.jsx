@@ -1,14 +1,14 @@
 import React from 'react';
 
-function MessageCard(message) {
+function MessageCard({id, timeCreated, name, email, subject, message}) {
 
     return (
         <div>
-            <p>Ontvangen op: {message.timeCreated}</p>
-            <p>Afzender: {message.name} </p>
-            <p>Email-adres: {message.email}</p>
-            <p>Onderwerp: {message.subject}</p>
-            <p>Bericht: {message.message}</p>
+            <p>Ontvangen op: {timeCreated}</p>
+            <p>Afzender: {name} </p>
+            <p>Email-adres: {email}</p>
+            <p>Onderwerp: {subject}</p>
+            <p>Bericht: {message}</p>
         </div>
     );
 }
