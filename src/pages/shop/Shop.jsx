@@ -42,7 +42,7 @@ function Shop() {
 
             <section className="coloring-books">
                 <h2>
-                    Onze kleurplaaten
+                    Onze kleurplaten
                 </h2>
                 <ul>
                     {coloringBooksData
