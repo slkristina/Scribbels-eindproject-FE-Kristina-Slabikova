@@ -22,7 +22,7 @@ function Carousel() {
     const seizoenen = adventureData
         .map(({seizoen}) => seizoen.flat(","));
 
-    const fetchAdventures = async () => {
+    async function fetchAdventures() {
         try {
             const response = await axios.get(
                 "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures"
@@ -48,7 +48,7 @@ function Carousel() {
         } catch (err) {
             console.error("Error fetching adventures:", err.message);
         }
-    };
+    }
 
 
     useEffect(() => {
