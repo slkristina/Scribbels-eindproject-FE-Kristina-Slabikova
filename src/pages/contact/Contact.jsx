@@ -20,10 +20,8 @@ function Contact() {
                 createdAt: new Date(),
             });
             setTimeout(() => handleReset(), 1000);
-        } catch (e) {
-            console.error(e);
-        } finally {
-            handleReset();
+        } catch (err) {
+            console.error(err.message);
         }
     }
 

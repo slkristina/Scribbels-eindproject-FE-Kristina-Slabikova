@@ -3,7 +3,6 @@ import {createUserWithEmailAndPassword} from "firebase/auth"
 import {auth} from "../../../firebase/firebaseconfig.js";
 import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
-import {useAuthValue} from "../../../context/AuthContext.jsx";
 
 function AdminRegistration() {
     console.log("register called");
@@ -13,7 +12,6 @@ function AdminRegistration() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const {setTimeActive} = useAuthValue();
     const [successfullyRegistered] = useState("");
 
     const validatePassword = () => {
@@ -27,28 +25,27 @@ function AdminRegistration() {
         return isValid
     }
 
-    const register = e => {
+    async function register(e) {
         e.preventDefault();
         console.log("Form submitted!");
         setError((''));
-
         if (validatePassword()) {
             console.log("password validation has been passed");
-            createUserWithEmailAndPassword(auth, email, password)
-                .then(() => navigate("/admin"))
-                .catch((error => {
-                    setError(error.message);
-                }));
+            try {
+            await createUserWithEmailAndPassword(auth, email, password)
+                navigate("/admin")
+            } catch (err) {
+                setError(error.message);
+            }
         }
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
+        handleReset();
     }
 
 
     function handleReset() {
         setEmail("");
         setPassword("");
+        setConfirmPassword("");
     }
 
     return (

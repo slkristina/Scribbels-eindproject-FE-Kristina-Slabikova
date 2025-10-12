@@ -19,13 +19,15 @@ function AdminLogin() {
     }, [currentUser, navigate]);
 
 
-    const login = e => {
+    async function login(e) {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-                navigate('/admin');
-            })
-            .catch(err => setError(err.message))
+        setError("");
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+            navigate('/admin');
+        } catch (err) {
+            setError(err.message)
+        }
     }
 
     function handleReset() {

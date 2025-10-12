@@ -11,42 +11,48 @@ function Carousel() {
     const [selectedSeizoen, setSelectedSeizoen] = useState("");
     const [selectedOmgeving, setSelectedOmgeving] = useState("");
     const [searchWord, setSearchWord] = useState("");
+    const [omgevingen, setOmgevingen] = useState([]);
 
     function handleEnterSearch() {
         console.log("search is submitted", searchWord);
     }
-
-    const omgevingen = adventureData
-        .flatMap(({omgeving}) =>
-            omgeving?.flatMap(item => item.split(",").map(str => str.trim())) || []
-        );
 
     const uniqueOmgevingen = [...new Set(omgevingen)];
 
     const seizoenen = adventureData
         .map(({seizoen}) => seizoen.flat(","));
 
-    useEffect(() => {
-        axios
-            .get("https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures")
-            .then(response => {
-                console.log(response.data);
-                const adventures = response.data.documents?.map(doc => ({
-                    id: doc.name.split("/").pop(),
-                    title: doc.fields?.title?.stringValue || "",
-                    youtubeUrl: doc.fields?.youtube_url?.stringValue || null,
-                    spotifyUrl: doc.fields?.spotify_url?.stringValue || null,
-                    thumbnailUrl: doc.fields?.thumbnail_url?.stringValue || null,
-                    omgeving: doc.fields?.omgeving?.arrayValue?.values?.map(v => v.stringValue) || [],
-                    seizoen: doc.fields?.seizoen?.arrayValue?.values?.map(v => v.stringValue) || [],
-                })) || [];
+    const fetchAdventures = async () => {
+        try {
+            const response = await axios.get(
+                "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures"
+            );
 
-                setAdventureData(adventures);
-                console.log("Fetch adventures data:", adventures);
-            })
-            .catch(err => {
-                console.log("error fetching adventures:", err);
-            });
+            const adventures = response.data.documents?.map(doc => ({
+                id: doc.name.split("/").pop(),
+                title: doc.fields?.title?.stringValue || "",
+                youtubeUrl: doc.fields?.youtube_url?.stringValue || null,
+                spotifyUrl: doc.fields?.spotify_url?.stringValue || null,
+                thumbnailUrl: doc.fields?.thumbnail_url?.stringValue || null,
+                omgeving: doc.fields?.omgeving?.arrayValue?.values?.map(v => v.stringValue) || [],
+                seizoen: doc.fields?.seizoen?.arrayValue?.values?.map(v => v.stringValue) || [],
+            })) || [];
+
+            const omgevingen = adventureData
+                .flatMap(({omgeving}) =>
+                    omgeving?.flatMap(item => item.split(",").map(str => str.trim())) || []
+                );
+
+            setOmgevingen(omgevingen);
+            setAdventureData(adventures);
+        } catch (err) {
+            console.error("Error fetching coloring books:", err);
+        }
+    };
+
+
+    useEffect(() => {
+     fetchAdventures();
     }, []);
 
     const filteredAdventures = adventureData.filter(adventure => {
