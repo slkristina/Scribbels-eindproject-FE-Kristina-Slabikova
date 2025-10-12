@@ -10,7 +10,7 @@ function AdventureManager() {
         if (zekerWeten) {
             try {
                 await axios.delete(`https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures/${id}`);
-                setAdventureData(prevState => adventureData.filter(adventure => adventure.id !== id))
+                setAdventureData(_ => adventureData.filter(adventure => adventure.id !== id))
             } catch (err) {
                 console.error(err.message);
             }
@@ -32,12 +32,11 @@ function AdventureManager() {
                 seizoen: doc.fields?.seizoen?.arrayValue?.values?.map(v => v.stringValue) || [],
             })) || [];
 
-            setAdventureData(adventures);
-            console.log(adventures)
+            setAdventureData(adventures)
         } catch (err) {
             console.error("Error fetching messages", err.message);
         }
-    };
+    }
 
     useEffect(() => {
         fetchAdventures();
