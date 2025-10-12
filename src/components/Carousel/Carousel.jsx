@@ -46,7 +46,7 @@ function Carousel() {
             setOmgevingen(omgevingen);
             setAdventureData(adventures);
         } catch (err) {
-            console.error("Error fetching coloring books:", err);
+            console.error("Error fetching adventures:", err.message);
         }
     };
 
