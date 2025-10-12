@@ -15,5 +15,14 @@
 
 #adventure-thumbnail {
     height: 150px;
-    width: 230px;
+}
+
+@media (max-width: 768px) {
+    .adventure-row {
+        flex-direction: column;
+    }
+
+    #adventure-thumbnail {
+      align-self: center;
+    }
 }

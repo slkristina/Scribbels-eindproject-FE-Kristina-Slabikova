@@ -6,7 +6,7 @@ import {useAuthValue} from "../../context/AuthContext.jsx";
 
 function Navbar() {
 
-    const currentUser = useAuthValue();
+    const {currentUser } = useAuthValue();
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
@@ -21,11 +21,13 @@ function Navbar() {
                 <CustomLink to={"/winkeltje"}>Winkeltje</CustomLink>
                 <CustomLink to={"/contact"}>Contact</CustomLink>
 
-                {!currentUser &&
-                <nav className="nav-account-buttons">
-                    <CustomLink to={"/login"}>Inloggen</CustomLink>
-                    <CustomLink to={"/register"}>Registreren</CustomLink>
-                </nav>
+                {!currentUser ?
+                    <>
+                        <CustomLink to={"/login"}>Inloggen</CustomLink>
+                        <CustomLink to={"/register"}>Registreren</CustomLink>
+                    </>
+                    :
+                    <CustomLink to={() => handleLogout}>Uitloggen</CustomLink>
                 }
             </ul>
 

@@ -98,9 +98,7 @@ body {
         align-items: flex-start;
         gap: 0.5rem;
     }
-}
 
-@media (max-width: 768px) {
     .site-logo img {
         height: 40px;
     }

@@ -32,8 +32,9 @@ function MessageManager() {
     return (
         <>
             {messageData ?
-                messageData.map(message => {
+                messageData.map((message,index) => {
                     return <MessageCard
+                        key={message.id + index}
                         id={message.id}
                         timeCreated={message.createdAt}
                         name={message.name}
