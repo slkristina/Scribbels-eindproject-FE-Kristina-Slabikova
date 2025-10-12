@@ -1,8 +1,7 @@
 import './App.css';
 import './styles/global.css';
 import './styles/index.css';
-import {useState} from "react";
-import {AuthProvider, useAuthValue} from "./context/AuthContext.jsx";
+import {AuthProvider} from "./context/AuthContext.jsx";
 import {Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Home from './pages/home/Home.jsx';
@@ -15,18 +14,11 @@ import AdminPage from "./pages/admin/AdminPage.jsx";
 import AdminLogin from "./pages/admin/login/AdminLogin.jsx";
 import AdminRegistration from "./pages/admin/register/AdminRegistration.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import VerifyEmail from "./pages/admin/VerifyEmail.jsx";
-import PrivateRoute from "./pages/admin/PrivateRoute.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 
 function App() {
-
-    const { currentUser } = useAuthValue();
-    const [timeActive, setTimeActive] = useState(false);
-
-
-
     return (
-        <AuthProvider value={{currentUser, timeActive, setTimeActive}}>
+        <AuthProvider>
             <div className="app-container">
                 <Navbar/>
                 <main className="main-webpages-wrapper">
@@ -48,7 +40,6 @@ function App() {
                             />
                             <Route path="/login" element={<AdminLogin/>}/>
                             <Route path="/register" element={<AdminRegistration/>}/>
-                            <Route path="/verify-email" element={<VerifyEmail/>}/>
                         </Routes>
                     </div>
                 </main>

@@ -3,17 +3,17 @@ import "./Footer.css";
 function Footer() {
     return (
         <footer className="footer-container">
-            <div className="footer-privacy">
+            <section className="footer-privacy">
                 <p>
                     Privacystatement: XXXXX
                 </p>
-            </div>
-            <div className="footer-cookies">
+            </section>
+            <section className="footer-cookies">
                 <p>
                     Cookiebeleid: XXXXX
                 </p>
 
-                <div className="footer-info">
+                <address className="footer-info">
                     <p>
                         KVK-nummer: XXXXX
                     </p>
@@ -26,8 +26,8 @@ function Footer() {
                     <p>
                         ©2025 Scribbels.nl
                     </p>
-                </div>
-            </div>
+                </address>
+            </section>
         </footer>
     );
 }

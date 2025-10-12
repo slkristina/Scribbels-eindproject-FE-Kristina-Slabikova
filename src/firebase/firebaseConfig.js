@@ -7,7 +7,7 @@ const firebaseConfig = {
     apiKey: "AIzaSyC1amjd3zL34JGkHpdeGnEQKqmGC5SACKU",
     authDomain: "scribbels-b3ffe.firebaseapp.com",
     projectId: "scribbels-b3ffe",
-    storageBucket: "scribbels-b3ffe.firebasestorage.app",
+    storageBucket: "scribbels-b3ffe.appspot.app",
     messagingSenderId: "232553743419",
     appId: "1:232553743419:web:a3bdd6bafdde017dbfc81e",
     base_url: "https://firestore.googleapis.com"

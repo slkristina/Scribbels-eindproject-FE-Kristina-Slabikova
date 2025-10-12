@@ -1,9 +1,8 @@
 import React, {useState} from "react";
-import {createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth"
-import {auth} from "../../../firebase/FirebaseConfig.js";
+import {createUserWithEmailAndPassword} from "firebase/auth"
+import {auth} from "../../../firebase/firebaseConfig.js";
 import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
-import {useAuthValue} from "../../../context/AuthContext.jsx";
 
 function AdminRegistration() {
     console.log("register called");
@@ -13,8 +12,7 @@ function AdminRegistration() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const {setTimeActive} = useAuthValue();
-    const [successfullyRegistered, setSuccessfullyRegistered] = useState("");
+    const [successfullyRegistered] = useState("");
 
     const validatePassword = () => {
         let isValid = true
@@ -27,67 +25,37 @@ function AdminRegistration() {
         return isValid
     }
 
-    const register = e => {
+    async function register(e) {
         e.preventDefault();
         console.log("Form submitted!");
         setError((''));
-
         if (validatePassword()) {
             console.log("password validation has been passed");
-            createUserWithEmailAndPassword(auth, email, password)
-                .then(() => {
-                    console.log("user has been just created:");
-                    sendEmailVerification(auth.currentUser)
-                        .then(() => {
-                            console.log("verification e-mail has been successfully sent");
-                            setTimeActive(true);
-                            navigate('/verify-email');
-                        })
-                        .catch(error => {
-                            alert(error.message);
-                        });
-                })
-                .catch((error => {
-                    setError(error.message);
-                }));
+            try {
+            await createUserWithEmailAndPassword(auth, email, password)
+                navigate("/admin")
+            } catch (err) {
+                setError(error.message);
+            }
         }
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
+        handleReset();
     }
-
-    // const handleRegistration = async (e) => {
-    //     e.preventDefault();
-    //     setError("");
-
-    //     const auth = getAuth();
-
-    //     try {
-    //         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    //         const user = userCredential.user;
-    //         const errorMessage = error.message;
-    //         const errorCode = error.code;
-    //
-    //         setSuccessfullyRegistered("Registration is successful");
-    //     } catch (error) {
-    //         setError("Registration failed");
-    //     }
-    // };
 
 
     function handleReset() {
         setEmail("");
         setPassword("");
+        setConfirmPassword("");
     }
 
     return (
-        <div className="container">
-            <div className="admin-registration-form">
+        <main className="container">
+            <section className="admin-registration-form">
                 <h2>Admin Registratie</h2>
                 <form onSubmit={register} name='registration-form'>
-                    <p>
+                    <label htmlFor="email">
                         E-mailadres:
-                    </p>
+                    </label>
                     <input
                         type="email"
                         placeholder="E-mailadres"
@@ -95,9 +63,9 @@ function AdminRegistration() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <p>
+                    <label htmlFor="password">
                         Password:
-                    </p>
+                    </label>
                     <input
                         type="password"
                         placeholder="Wachtwoord"
@@ -105,9 +73,9 @@ function AdminRegistration() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <p>
+                    <label htmlFor="confirmPassword">
                         Bevestig Wachtwoord:
-                    </p>
+                    </label>
                     <input
                         type="password"
                         placeholder="Bevestig Wachtwoord"
@@ -120,23 +88,10 @@ function AdminRegistration() {
                     <button type={"submit"} onClick={() => console.log("Register button clicked!")}>Registreren</button>
                     <button type="button" onClick={handleReset}>Reset</button>
                 </form>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
-
-// Firebase template:
-// createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) =>{
-//     //Signed up
-//     const user = userCredential.user;
-//     //...
-//     })
-//     .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     //...
-//         });
 
 
 export default AdminRegistration;

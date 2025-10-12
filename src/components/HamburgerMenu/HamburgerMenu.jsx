@@ -1,17 +1,20 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import "./HamburgerMenu.css";
+import {handleLogout, useAuthValue} from "../../context/AuthContext.jsx";
 
 
 function HamburgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
+    const { currentUser } = useAuthValue();
+
     const toggleMenu = () => {
         setIsOpen((open) => !open);
     };
 
     return (
-        <div className="hamburger-menu">
-            <button className="burger-btn" onClick={toggleMenu}>
+        <nav className="hamburger-menu">
+            <button className="burger-btn" type="button" onClick={toggleMenu}>
                 ☰
             </button>
 
@@ -23,11 +26,18 @@ function HamburgerMenu() {
                     <li><Link to={"/over-de-makers"} onClick={() => setIsOpen(false)}>Over de Makers</Link></li>
                     <li><Link to={"/winkeltje"} onClick={() => setIsOpen(false)}>Winkeltje</Link></li>
                     <li><Link to={"/contact"} onClick={() => setIsOpen(false)}>Contact</Link></li>
-                    <li><Link to={"/login"} onClick={() => setIsOpen(false)}>Inloggen</Link></li>
-                    <li><Link to={"/register"} onClick={() => setIsOpen(false)}>Registreren</Link></li>
+                    {!currentUser ?
+                        <>
+                            <li><Link to={"/login"} onClick={() => setIsOpen(false)}>Inloggen</Link></li>
+                            <li><Link to={"/register"} onClick={() => setIsOpen(false)}>Registreren</Link></li>
+                        </>
+                        :
+                        <li><Link to={"/"} onClick={() => handleLogout}>Uitloggen</Link></li>
+
+                    }
                 </ul>
             )}
-        </div>
+        </nav>
     );
 }
 

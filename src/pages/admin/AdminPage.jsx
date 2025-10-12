@@ -2,10 +2,10 @@ import AdminDashboard from "../../components/Admin/adminDashboard/AdminDashboard
 
 function AdminPage() {
     return (
-        <div className="container">
-            <h2>Admin Page</h2>
+        <main className="container">
+            <h1>Admin Page</h1>
             <AdminDashboard/>
-        </div>
+        </main>
     )
 }
 

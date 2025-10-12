@@ -1,0 +1,41 @@
+.messageCard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.messageCard:hover {
+    border: 0.1rem solid green;
+    border-radius: 5px;
+}
+
+.messageCard-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.messageCard-content-top {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 20%;
+}
+
+.messageCard-content-middle {
+    display: flex;
+    align-self: flex-start;
+    flex: 1;
+}
+
+.messageCard-content-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.messageCard-delete {
+    width: 10%;
+}

@@ -1,0 +1,19 @@
+.adventure-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.adventure-row:hover {
+    border: 0.2rem solid green;
+    border-radius: 5px;
+}
+
+.adventure-row-title {
+    align-self: center;
+}
+
+#adventure-thumbnail {
+    height: 150px;
+    width: 230px;
+}
