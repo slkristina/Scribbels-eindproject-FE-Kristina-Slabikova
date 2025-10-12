@@ -107,7 +107,10 @@ function Contact() {
                             required/>
                     </label>
                 </div>
-                {submitted ? <p>Je bericht is verstuurd</p> :
+                {submitted
+                    ?
+                    <p>Je bericht is verstuurd</p>
+                    :
                     <div>
                         <button
                             type="submit">
