@@ -1,6 +1,7 @@
 import "./AdminMainPanel.css";
 import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx";
 import MessageManager from "../messageManager/MessageManager.jsx";
+import AdventureManager from "../adventureManager/AdventureManager.jsx";
 
 function AdminMainPanel({activeTab}) {
     return (
@@ -22,11 +23,12 @@ function AdminMainPanel({activeTab}) {
                 </section>
             )}
 
-            {activeTab === "mediaManager" && (
+            {activeTab === "adventureManager" && (
                 <section>
                     <h1>
-                        Media Manager
+                        Advonturen Manager
                     </h1>
+                    <AdventureManager />
                 </section>
             )}
 
