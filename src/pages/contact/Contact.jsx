@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Contact.css';
 import {addDoc, collection} from "firebase/firestore";
-import {db} from "../../firebase/firebaseconfig.js";
+import {db} from "../../firebase/firebaseConfig.js";
 
 function Contact() {
     const [name, setName] = useState("");

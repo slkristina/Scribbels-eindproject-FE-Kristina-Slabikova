@@ -25,7 +25,7 @@ function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
                 placeholder="Zoek een verhaal op titel"
                 className="searchbar-input"
                 onChange={(e) => onSearchChange(e.target.value)}
-                           />
+            />
         </section>
     )
 }

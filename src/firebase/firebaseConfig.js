@@ -3,7 +3,7 @@ import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 import {getStorage} from "firebase/storage";
 
-const firebaseconfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyC1amjd3zL34JGkHpdeGnEQKqmGC5SACKU",
     authDomain: "scribbels-b3ffe.firebaseapp.com",
     projectId: "scribbels-b3ffe",
@@ -13,7 +13,7 @@ const firebaseconfig = {
     base_url: "https://firestore.googleapis.com"
 };
 
-export const app = initializeApp(firebaseconfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
