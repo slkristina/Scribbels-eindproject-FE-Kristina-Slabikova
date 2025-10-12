@@ -40,6 +40,8 @@ function MessageManager() {
                         email={message.email}
                         subject={message.subject}
                         message={message.message}
+                        messageData={messageData}
+                        setMessageData={setMessageData}
                     />
                 })
                 :
