@@ -33,9 +33,9 @@ function AdminSidebar({activeTab, setActiveTab}) {
 
             <button
                 type="button"
-                className={activeTab === "mediaManager" ? "active sidebar-btn" : "sidebar-btn"}
-                onClick={() => setActiveTab("mediaManager")}>
-                Media Manager
+                className={activeTab === "adventureManager" ? "active sidebar-btn" : "sidebar-btn"}
+                onClick={() => setActiveTab("adventureManager")}>
+                Avonturen Manager
             </button>
 
             <button
