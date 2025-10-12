@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {db} from "../../../firebase/firebaseconfig.js";
+import {db} from "../../../firebase/firebaseConfig.js";
 import {addDoc, collection} from "firebase/firestore";
 
 function UploadAdventureForm() {
@@ -21,7 +21,7 @@ function UploadAdventureForm() {
             const data = {
                 title: title,
                 youtube_url: youtube,
-                spotify_url:spotify,
+                spotify_url: spotify,
                 seizoen: [season],
                 omgeving: [surrounding],
                 thumbnail_url: null,
@@ -31,22 +31,27 @@ function UploadAdventureForm() {
             await addDoc(collection(db, "adventures"), data);
             alert("Uw verhaal is opgeslagen");
 
-            setTitle("");
-            setYoutube("");
-            setSpotify("");
-            setSeason("Algemeen");
-            setSurrounding("Overig");
+            handleReset();
         } catch (error) {
             alert("Fout bij het opslaan!");
             console.log(error);
         }
     }
 
+    function handleReset() {
+        setTitle("");
+        setYoutube("");
+        setSpotify("");
+        setSeason("Algemeen");
+        setSurrounding("Overig");
+    }
+
     return (
         <form onSubmit={handleSubmit}>
-            <label>
+            <label htmlFor="title">
                 Titel (verplicht)
                 <input
+                    id="title"
                     type="text"
                     name="title"
                     value={title}
@@ -55,9 +60,10 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
+            <label htmlFor="youtube_url">
                 YouTube-link (verplicht)
                 <input
+                    id="youtube_url"
                     type="url"
                     value={youtube}
                     name="youtube_url"
@@ -66,9 +72,10 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
+            <label htmlFor="spotify_url">
                 Spotify-link (verplicht)
                 <input
+                    id="spotify_url"
                     type="url"
                     value={spotify}
                     name="spotify_url"
@@ -77,33 +84,44 @@ function UploadAdventureForm() {
                 />
             </label>
 
-            <label>
-                Seizoen
-                <select
-                    value={season} onChange={(e) => setSeason(e.target.value)}>
-                    <option>Algemeen</option>
-                    <option>Lente</option>
-                    <option>Zomer</option>
-                    <option>Herfst</option>
-                    <option>Winter</option>
-                </select>
-            </label>
+            <fieldset>
+                <legend>Categorieën</legend>
+                <label htmlFor="season">
+                    Seizoen
+                    <select
+                        id="season"
+                        value={season}
+                        onChange={(e) => setSeason(e.target.value)}>
+                        <option>Algemeen</option>
+                        <option>Lente</option>
+                        <option>Zomer</option>
+                        <option>Herfst</option>
+                        <option>Winter</option>
+                    </select>
+                </label>
 
-            <label>
-                Omgeving
-                <select
-                    value={surrounding} onChange={(e) => setSurrounding(e.target.value)}>
-                    <option>Overig</option>
-                    <option>Zee</option>
-                    <option>Rivier</option>
-                    <option>Bos</option>
-                    <option>Woestijn</option>
-                    <option>Huis en tuin</option>
-                </select>
-            </label>
+                <label htmlFor="surrounding">
+                    Omgeving
+                    <select
+                        id="surrounding"
+                        value={surrounding}
+                        onChange={(e) => setSurrounding(e.target.value)}>
+                        <option>Overig</option>
+                        <option>Zee</option>
+                        <option>Rivier</option>
+                        <option>Bos</option>
+                        <option>Woestijn</option>
+                        <option>Huis en tuin</option>
+                    </select>
+                </label>
+            </fieldset>
 
             <button type="submit">
                 Creëren!
+            </button>
+            <button type="button"
+                    onClick={handleReset}>
+                Reset
             </button>
         </form>
     );

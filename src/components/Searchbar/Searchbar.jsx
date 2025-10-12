@@ -11,7 +11,13 @@ function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
 
 
     return (
-        <div className="searchbar-container">
+        <section
+            className="searchbar-container"
+            onSubmit={(e) => {
+                e.preventDefault();
+                onSearchSubmit();
+            }}
+        >
             <input
                 id="searchbar-input"
                 type="text"
@@ -19,9 +25,8 @@ function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
                 placeholder="Zoek een verhaal op titel"
                 className="searchbar-input"
                 onChange={(e) => onSearchChange(e.target.value)}
-                onKeyDown={handleEnterSearch}
             />
-        </div>
+        </section>
     )
 }
 

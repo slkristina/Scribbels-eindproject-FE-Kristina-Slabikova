@@ -4,14 +4,14 @@ function AdventuresPage() {
 
     return (
         <>
-            <div className="container">
-                <h2>
+            <main className="container">
+                <h1>
                     Je kunt onze verhaaltjes (voor)lezen en beluisteren op YouTube en Spotify.
                     Of download de e-book van het verhaaltje.
-                </h2>
+                </h1>
 
                 <Carousel />
-            </div>
+            </main>
         </>
     )
 }

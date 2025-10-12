@@ -9,8 +9,8 @@ function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, col
             </div>
             <div className="thumbnail-buttons">
                  {coloringBookUrl && (
-                    <a target="_blank" rel="noopener noreferrer" href={coloringBookUrl}>
-                        <button>
+                    <a download rel="noopener noreferrer" href={coloringBookUrl}>
+                        <button type="button">
                             <img src="/assets/downloads-btn.png" alt="Download" className="downloads-btn-image" />
                         </button>
                     </a>
@@ -18,19 +18,19 @@ function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, col
 
                 {youtubeUrl && (
                     <a target="_blank" rel="noopener noreferrer" href={youtubeUrl}>
-                        <button>📺</button>
+                        <button type="button">📺</button>
                     </a>
                 )}
 
                 {spotifyUrl && (
                     <a target="_blank" rel="noopener noreferrer" href={spotifyUrl}>
-                        <button>🎧</button>
+                        <button type="button">🎧</button>
                     </a>
                 )}
 
                 {pdfUrl && (
                     <a className="pdf-button" target="_blank" rel="noopener noreferrer" href={pdfUrl}>
-                        <button>📖</button>
+                        <button type="button">📖</button>
                     </a>
                 )}
             </div>

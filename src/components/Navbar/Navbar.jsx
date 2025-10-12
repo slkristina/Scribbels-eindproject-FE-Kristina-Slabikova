@@ -2,9 +2,11 @@ import './Navbar.css'
 import {Link, useMatch, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
 import React from "react";
+import {useAuthValue} from "../../context/AuthContext.jsx";
 
 function Navbar() {
 
+    const currentUser = useAuthValue();
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
@@ -18,15 +20,18 @@ function Navbar() {
                 <CustomLink to={"/over-de-makers"}>Over de Makers</CustomLink>
                 <CustomLink to={"/winkeltje"}>Winkeltje</CustomLink>
                 <CustomLink to={"/contact"}>Contact</CustomLink>
-                <div className="nav-account-buttons">
-                <CustomLink to={"/login"}>Inloggen</CustomLink>
-                <CustomLink to={"/register"}>Registreren</CustomLink>
-                </div>
+                {!currentUser &&
+                <nav className="nav-account-buttons">
+                    <CustomLink to={"/login"}>Inloggen</CustomLink>
+                    <CustomLink to={"/register"}>Registreren</CustomLink>
+                </nav>
+                }
+
             </ul>
 
-            <div className="hamburger-btn-container">
+            <nav className="hamburger-btn-container">
                 <HamburgerMenu/>
-            </div>
+            </nav>
         </nav>
     );
 }

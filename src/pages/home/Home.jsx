@@ -4,15 +4,16 @@ import {Link} from "react-router-dom";
 
 function Home() {
     return (
-        <div className="homepage-container">
-            <div className="hero-image">
+        <main className="homepage-container">
+            <figure className="hero-image">
                 <img src={heroImage} alt="Scribbels Homepage Picture"/>
-            </div>
-            <div className="hero-text">
+            </figure>
+
+            <section className="hero-text">
                 <h1 className="header">Welkom bij Scribbels Dierenverhaaltjes</h1>
-                <h3>
+                <h2>
                     De magie van verhalen voor jonge ontdekkers
-                </h3>
+                </h2>
                 <p>
                     Superleuk dat je ons hebt gevonden. Stap binnen in de betoverende wereld van Scribbels
                     Dierenverhaaltjes.
@@ -26,8 +27,8 @@ function Home() {
                 <Link to="/verhaaltjes" className="btn">
                     Ga direct naar de verhaaltjes
                 </Link>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 

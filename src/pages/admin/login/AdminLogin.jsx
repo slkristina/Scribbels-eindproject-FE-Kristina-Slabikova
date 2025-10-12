@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {auth} from "../../../firebase/firebaseconfig.js";
+import {auth} from "../../../firebase/firebaseConfig.js";
 import {signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 import {useAuthValue} from "../../../context/AuthContext.jsx";
@@ -19,13 +19,15 @@ function AdminLogin() {
     }, [currentUser, navigate]);
 
 
-    const login = e => {
+    async function login(e) {
         e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-                navigate('/admin');
-            })
-            .catch(err => setError(err.message))
+        setError("");
+        try {
+            await signInWithEmailAndPassword(auth, email, password)
+            navigate('/admin');
+        } catch (err) {
+            setError(err.message)
+        }
     }
 
     function handleReset() {
@@ -35,24 +37,26 @@ function AdminLogin() {
 
 
     return (
-        <div className="container">
-            <div className="admin-login">
+        <main className="container">
+            <section className="admin-login">
                 <h2>Login Page</h2>
                 <form onSubmit={login} name='login_form'>
-                    <label>
+                    <label htmlFor="email">
                         E-mailadres:
                     </label>
                     <input
+                        id="e-mail"
                         type="email"
                         placeholder="E-mailadres"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <label>
+                    <label htmlFor="password">
                         Password:
                     </label>
                     <input
+                        id="password"
                         type="password"
                         placeholder="Wachtwoord"
                         value={password}
@@ -65,8 +69,8 @@ function AdminLogin() {
                         <button type="button" onClick={handleReset}>Reset</button>
                     </div>
                 </form>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
 

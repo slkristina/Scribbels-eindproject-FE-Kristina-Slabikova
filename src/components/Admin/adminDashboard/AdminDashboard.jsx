@@ -7,10 +7,10 @@ function AdminDashboard() {
     const [activeTab, setActiveTab] = useState("Upload nieuw verhaal");
 
     return (
-        <div className="dashboard-container">
+        <main className="dashboard-container">
             <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
             <AdminMainPanel activeTab={activeTab} />
-        </div>
+        </main>
     );
 }
 

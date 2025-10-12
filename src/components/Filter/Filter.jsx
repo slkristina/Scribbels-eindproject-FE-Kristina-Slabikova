@@ -10,7 +10,7 @@ function Filter({
                     }) {
 
     return (
-        <div className="filter-container">
+        <section className="filter-container">
             <div className="filter-category">
                 <label htmlFor="season-filter">
                     Seizoen
@@ -37,7 +37,7 @@ function Filter({
                 </select>
             </div>
 
-        </div>
+        </section>
     )
 }
 
