@@ -20,13 +20,13 @@ function Navbar() {
                 <CustomLink to={"/over-de-makers"}>Over de Makers</CustomLink>
                 <CustomLink to={"/winkeltje"}>Winkeltje</CustomLink>
                 <CustomLink to={"/contact"}>Contact</CustomLink>
+
                 {!currentUser &&
                 <nav className="nav-account-buttons">
                     <CustomLink to={"/login"}>Inloggen</CustomLink>
                     <CustomLink to={"/register"}>Registreren</CustomLink>
                 </nav>
                 }
-
             </ul>
 
             <nav className="hamburger-btn-container">
