@@ -9,14 +9,14 @@ function ThumbnailCard({title, thumbnailUrl, image, youtubeUrl, spotifyUrl, pdfU
     return (
         <div className="thumbnail-card">
             <div className="thumbnail-wrapper">
-                {!url && !image && thumbnailUrl &&
+                {!image && thumbnailUrl &&
                 <img src={thumbnailUrl} alt={title} className="thumbnail-image"/>}
                 {image && url &&
                     <img src={url} alt={title} className="thumbnail-image"/>}
 
             </div>
             <div className="thumbnail-buttons">
-                 {url && (
+                 {image && url && (
                     <a download rel="noopener noreferrer" href={url}>
                         <button type="button">
                             <img src="/assets/downloads-btn.png" alt="Download" className="downloads-btn-image" />
