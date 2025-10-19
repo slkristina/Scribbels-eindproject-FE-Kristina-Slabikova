@@ -22,16 +22,11 @@ function UploadColoringBookForm() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        // if (!title || !image) {
-        //     alert("Vul alle velden in!");
-        //     return;
-        // }
-
         try {
             const data = {
                 title: title,
                 image: image,
-                createdAt: new Date()
+                createdAt: new Date().toISOString()
             };
 
             await addDoc(collection(db, "coloringBooks"), data);

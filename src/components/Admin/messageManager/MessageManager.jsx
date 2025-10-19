@@ -21,7 +21,7 @@ function MessageManager() {
         } catch (err) {
             console.error("Error fetching messages", err.message);
         }
-    };
+    }
 
     useEffect(() => {
         fetchMessages();
