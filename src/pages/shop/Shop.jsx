@@ -16,7 +16,7 @@ function Shop() {
                 response.data.documents?.map((doc) => ({
                     id: doc.name.split("/").pop(),
                     title: doc.fields?.title?.stringValue || "",
-                    storagePath: doc.fields?.coloring_book_url?.stringValue || null,
+                    image: doc.fields?.image?.stringValue || ""
                 })) || [];
 
             setColoringBooksData(coloringBooks);
@@ -46,14 +46,15 @@ function Shop() {
                 </h2>
                 <ul>
                     {coloringBooksData
-                        .map((book) => (
+                        .map((book) => {
+                            return (
                             <ThumbnailCard
-                                thumbnailUrl={book.storagePath}
+                                image={book.image}
+                                thumbnailUrl={book.image}
                                 key={book.id}
-                                coloringBookUrl={book.storagePath}
                                 title={book.title}
                             />
-                        ))
+                        )})
                     }
                 </ul>
             </section>
