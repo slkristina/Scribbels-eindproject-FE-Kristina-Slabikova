@@ -34,7 +34,7 @@ function App() {
                                 path="/admin"
                                 element={
                                     <PrivateRoute>
-                                        <AdminPage />
+                                        <AdminPage/>
                                     </PrivateRoute>
                                 }
                             />
@@ -43,7 +43,9 @@ function App() {
                         </Routes>
                     </div>
                 </main>
-                <Footer/>
+                <div className={"test-footer"}>
+                    <Footer/>
+                </div>
             </div>
         </AuthProvider>
     );

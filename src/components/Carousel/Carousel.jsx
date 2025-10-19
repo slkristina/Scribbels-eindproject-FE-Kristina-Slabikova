@@ -13,14 +13,7 @@ function Carousel() {
     const [searchWord, setSearchWord] = useState("");
     const [omgevingen, setOmgevingen] = useState([]);
 
-    function handleEnterSearch() {
-        console.log("search is submitted", searchWord);
-    }
-
     const uniqueOmgevingen = [...new Set(omgevingen)];
-
-    const seizoenen = adventureData
-        .map(({seizoen}) => seizoen.flat(","));
 
     async function fetchAdventures() {
         try {
@@ -73,7 +66,6 @@ function Carousel() {
                 onOmgevingChange={setSelectedOmgeving}
             />
             <Searchbar
-                onSearchSubmit={handleEnterSearch}
                 onSearchChange={setSearchWord}
                 searchWord={searchWord}
             />
@@ -85,7 +77,7 @@ function Carousel() {
 
                                 return <ThumbnailCard key={adventure.id} {...adventure} index={index}/>
 
-                            })};
+                            })}
                     </ul>
                 </div>
             </section>
