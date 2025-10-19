@@ -1,7 +1,8 @@
 .admin-sidebar-container {
+    align-self: baseline;
     display: flex;
-    flex-direction: column;
-    width: 250px;
+    flex-direction: row;
+    width: 100%;
     background-color: var(--color-secondary);
     padding: 2rem;
     gap: 1rem;

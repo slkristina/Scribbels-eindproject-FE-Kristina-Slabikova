@@ -42,16 +42,6 @@
     margin-top: 0.2rem;
 }
 
-#about-quote {
-    font-style: italic;
-    background-color: var(--accent-orange);
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    font-weight: bolder;
-    opacity: 80%;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;

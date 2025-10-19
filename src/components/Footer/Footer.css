@@ -5,7 +5,9 @@
     padding: 0.2rem;
     text-align: center;
     line-height: 0.2;
+    margin-top: auto;
 }
+
 
 .footer-info,
 .footer-privacy,

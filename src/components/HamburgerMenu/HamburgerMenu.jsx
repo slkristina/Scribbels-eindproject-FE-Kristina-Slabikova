@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "./HamburgerMenu.css";
 import {handleLogout, useAuthValue} from "../../context/AuthContext.jsx";
 
@@ -7,10 +7,21 @@ import {handleLogout, useAuthValue} from "../../context/AuthContext.jsx";
 function HamburgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const { currentUser } = useAuthValue();
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsOpen((open) => !open);
     };
+
+    async function logout(e) {
+        e?.preventDefault();
+        try {
+            await handleLogout();
+            navigate("/")
+        } catch (err) {
+            console.error('Logout failed', err);
+        }
+    }
 
     return (
         <nav className="hamburger-menu">
@@ -32,7 +43,7 @@ function HamburgerMenu() {
                             <li><Link to={"/register"} onClick={() => setIsOpen(false)}>Registreren</Link></li>
                         </>
                         :
-                        <li><Link to={"/"} onClick={() => handleLogout}>Uitloggen</Link></li>
+                        <li><button type={"button"} onClick={logout}>Uitloggen</button></li>
 
                     }
                 </ul>

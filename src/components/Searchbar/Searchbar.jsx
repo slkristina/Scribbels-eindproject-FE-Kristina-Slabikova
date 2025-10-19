@@ -3,13 +3,6 @@ import React from "react";
 
 function Searchbar({searchWord, onSearchChange, onSearchSubmit}) {
 
-    function handleEnterSearch(event) {
-        if (event.key === 'Enter') {
-            onSearchSubmit();
-        }
-    }
-
-
     return (
         <section
             className="searchbar-container"

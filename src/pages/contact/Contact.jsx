@@ -30,6 +30,7 @@ function Contact() {
         setEmail("");
         setMessage("");
         setSubject("");
+        setSubmitted(false)
     }
 
     async function handleSubmit(event) {

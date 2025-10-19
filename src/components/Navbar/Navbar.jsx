@@ -1,12 +1,23 @@
 import './Navbar.css'
-import {Link, useMatch, useResolvedPath} from "react-router-dom";
+import {Link, useMatch, useNavigate, useResolvedPath} from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu.jsx";
 import React from "react";
-import {useAuthValue} from "../../context/AuthContext.jsx";
+import {handleLogout, useAuthValue} from "../../context/AuthContext.jsx";
 
 function Navbar() {
+    const {currentUser } = useAuthValue();
+    const navigate = useNavigate();
 
-    const currentUser = useAuthValue();
+    async function logout(e) {
+        e.preventDefault();
+        try {
+            await handleLogout();
+            navigate("/")
+        } catch (err) {
+            console.error('Logout failed', err);
+        }
+    }
+
     return (
         <nav className={"navbar"}>
             <Link to="/" className="site-logo">
@@ -21,11 +32,18 @@ function Navbar() {
                 <CustomLink to={"/winkeltje"}>Winkeltje</CustomLink>
                 <CustomLink to={"/contact"}>Contact</CustomLink>
 
-                {!currentUser &&
-                <nav className="nav-account-buttons">
-                    <CustomLink to={"/login"}>Inloggen</CustomLink>
-                    <CustomLink to={"/register"}>Registreren</CustomLink>
-                </nav>
+                {!currentUser ?
+                    <>
+                        <CustomLink to={"/login"}>Inloggen</CustomLink>
+                        <CustomLink to={"/register"}>Registreren</CustomLink>
+                    </>
+                    :
+                    <button
+                        className="link-like-button"
+                        onClick={logout}
+                    >
+                        Uitloggen
+                    </button>
                 }
             </ul>
 

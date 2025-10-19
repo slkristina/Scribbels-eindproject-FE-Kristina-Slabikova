@@ -34,7 +34,7 @@ function UploadAdventureForm() {
             handleReset();
         } catch (error) {
             alert("Fout bij het opslaan!");
-            console.log(error);
+            console.error(error);
         }
     }
 

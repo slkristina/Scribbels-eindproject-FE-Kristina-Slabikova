@@ -1,15 +1,23 @@
 import React from 'react';
 import './ThumbnailCard.css'
 
-function ThumbnailCard({title, thumbnailUrl, youtubeUrl, spotifyUrl, pdfUrl, coloringBookUrl}) {
+function ThumbnailCard({title, thumbnailUrl, image, youtubeUrl, spotifyUrl, pdfUrl}) {
+
+    const svgBlob = new Blob([image], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+
     return (
         <div className="thumbnail-card">
             <div className="thumbnail-wrapper">
-                <img src={thumbnailUrl} alt={title} className="thumbnail-image"/>
+                {!image && thumbnailUrl &&
+                <img src={thumbnailUrl} alt={title} className="thumbnail-image"/>}
+                {image && url &&
+                    <img src={url} alt={title} className="thumbnail-image"/>}
+
             </div>
             <div className="thumbnail-buttons">
-                 {coloringBookUrl && (
-                    <a download rel="noopener noreferrer" href={coloringBookUrl}>
+                 {image && url && (
+                    <a download rel="noopener noreferrer" href={url}>
                         <button type="button">
                             <img src="/assets/downloads-btn.png" alt="Download" className="downloads-btn-image" />
                         </button>

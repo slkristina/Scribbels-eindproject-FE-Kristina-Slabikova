@@ -8,6 +8,7 @@ function AdminDashboard() {
 
     return (
         <main className="dashboard-container">
+            <h1>Admin Dashboard</h1>
             <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
             <AdminMainPanel activeTab={activeTab} />
         </main>

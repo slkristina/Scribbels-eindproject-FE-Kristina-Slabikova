@@ -17,5 +17,5 @@ API key: AIzaSyC1amjd3zL34JGkHpdeGnEQKqmGC5SACKU
 
 #Test credentials:
 
-E-mailadres: kristina.slabikova@gmail.com
-Password: Test@123!
+E-mailadres:    novi-docent@novi.com
+Password:       Novi@123

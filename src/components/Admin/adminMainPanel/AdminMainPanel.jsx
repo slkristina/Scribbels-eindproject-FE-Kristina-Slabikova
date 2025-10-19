@@ -2,6 +2,7 @@ import "./AdminMainPanel.css";
 import UploadAdventureForm from "../uploadAdventureForm/UploadAdventureForm.jsx";
 import MessageManager from "../messageManager/MessageManager.jsx";
 import AdventureManager from "../adventureManager/AdventureManager.jsx";
+import UploadColoringBookForm from "../coloringBooksManager/UploadColoringBookForm.jsx";
 
 function AdminMainPanel({activeTab}) {
     return (
@@ -20,13 +21,14 @@ function AdminMainPanel({activeTab}) {
                     <h1>
                         Kleurplaat uploaden
                     </h1>
+                    <UploadColoringBookForm/>
                 </section>
             )}
 
             {activeTab === "adventureManager" && (
                 <section>
                     <h1>
-                        Advonturen Manager
+                        Avonturen Manager
                     </h1>
                     <AdventureManager />
                 </section>

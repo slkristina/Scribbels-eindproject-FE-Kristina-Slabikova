@@ -5,8 +5,6 @@ import "./AdminRegistration.css";
 import {useNavigate} from "react-router-dom";
 
 function AdminRegistration() {
-    console.log("register called");
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -27,10 +25,8 @@ function AdminRegistration() {
 
     async function register(e) {
         e.preventDefault();
-        console.log("Form submitted!");
         setError((''));
         if (validatePassword()) {
-            console.log("password validation has been passed");
             try {
             await createUserWithEmailAndPassword(auth, email, password)
                 navigate("/admin")
@@ -85,7 +81,7 @@ function AdminRegistration() {
                     />
                     {error && <p className="error-message">{error}</p>}
                     {successfullyRegistered && <p className="success-message">{successfullyRegistered}</p>}
-                    <button type={"submit"} onClick={() => console.log("Register button clicked!")}>Registreren</button>
+                    <button type={"submit"}>Registreren</button>
                     <button type="button" onClick={handleReset}>Reset</button>
                 </form>
             </section>

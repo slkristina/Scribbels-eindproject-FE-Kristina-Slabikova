@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 import './Carousel.css';
 import Filter from "../Filter/Filter.jsx";
 import Searchbar from "../Searchbar/Searchbar.jsx";
 import ThumbnailCard from "../ThumbnailCard/ThumbnailCard.jsx";
+import fetchAdventures from "../../util/fetchers.jsx";
 
 function Carousel() {
 
@@ -13,46 +13,23 @@ function Carousel() {
     const [searchWord, setSearchWord] = useState("");
     const [omgevingen, setOmgevingen] = useState([]);
 
-    function handleEnterSearch() {
-        console.log("search is submitted", searchWord);
-    }
-
     const uniqueOmgevingen = [...new Set(omgevingen)];
 
-    const seizoenen = adventureData
-        .map(({seizoen}) => seizoen.flat(","));
-
-    async function fetchAdventures() {
-        try {
-            const response = await axios.get(
-                "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures"
-            );
-
-            const adventures = response.data.documents?.map(doc => ({
-                id: doc.name.split("/").pop(),
-                title: doc.fields?.title?.stringValue || "",
-                youtubeUrl: doc.fields?.youtube_url?.stringValue || null,
-                spotifyUrl: doc.fields?.spotify_url?.stringValue || null,
-                thumbnailUrl: doc.fields?.thumbnail_url?.stringValue || null,
-                omgeving: doc.fields?.omgeving?.arrayValue?.values?.map(v => v.stringValue) || [],
-                seizoen: doc.fields?.seizoen?.arrayValue?.values?.map(v => v.stringValue) || [],
-            })) || [];
-
-            const omgevingen = adventureData
-                .flatMap(({omgeving}) =>
-                    omgeving?.flatMap(item => item.split(",").map(str => str.trim())) || []
-                );
-
-            setOmgevingen(omgevingen);
-            setAdventureData(adventures);
-        } catch (err) {
-            console.error("Error fetching adventures:", err.message);
-        }
-    }
-
-
     useEffect(() => {
-     fetchAdventures();
+        let cancelled = false;
+
+        async function load() {
+            try {
+                const data = await fetchAdventures();
+                if(!cancelled) setAdventureData(data);
+            } catch (err) {
+                console.error(err)
+            }
+        }
+        load();
+        return () => {
+            cancelled = true;
+        }
     }, []);
 
     const filteredAdventures = adventureData.filter(adventure => {
@@ -73,7 +50,6 @@ function Carousel() {
                 onOmgevingChange={setSelectedOmgeving}
             />
             <Searchbar
-                onSearchSubmit={handleEnterSearch}
                 onSearchChange={setSearchWord}
                 searchWord={searchWord}
             />
@@ -85,7 +61,7 @@ function Carousel() {
 
                                 return <ThumbnailCard key={adventure.id} {...adventure} index={index}/>
 
-                            })};
+                            })}
                     </ul>
                 </div>
             </section>

@@ -32,18 +32,6 @@
     margin-top: 1rem;
 }
 
-.download-btn-image {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-
-}
-
-.thumbnail-wrapper:hover {
-    transform: scale(1.15);
-    z-index: 1;
-}
-
 .thumbnail-buttons {
     display: flex;
     flex-direction: row;
@@ -77,6 +65,7 @@
     object-fit: cover;
     background-color: var(--color-secondary);
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .pdf-button {

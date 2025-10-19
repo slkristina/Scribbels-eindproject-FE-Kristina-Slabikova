@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import MessageCard from "../../MessageCard/MessageCard.jsx";
+import {firebaseApi} from "../../../util/fetchers.jsx";
 
 function MessageManager() {
     const [messageData, setMessageData] = useState([]);
 
-    const fetchMessages = async () => {
+    async function fetchMessages() {
         try {
-            const response = await axios.get(
-                "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/messages"
-            );
+            const response = await firebaseApi.get("/messages");
             const messages = response.data.documents?.map(doc => ({
                 id: doc.name.split("/").pop(),
                 name: doc.fields?.name?.stringValue || "",
@@ -23,7 +21,7 @@ function MessageManager() {
         } catch (err) {
             console.error("Error fetching messages", err.message);
         }
-    };
+    }
 
     useEffect(() => {
         fetchMessages();
@@ -32,14 +30,10 @@ function MessageManager() {
     return (
         <>
             {messageData ?
-                messageData.map(message => {
+                messageData.map((messageContent, index) => {
                     return <MessageCard
-                        id={message.id}
-                        timeCreated={message.createdAt}
-                        name={message.name}
-                        email={message.email}
-                        subject={message.subject}
-                        message={message.message}
+                        key={messageContent.id + index}
+                        messageContent={messageContent}
                         messageData={messageData}
                         setMessageData={setMessageData}
                     />
