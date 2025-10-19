@@ -39,7 +39,7 @@ function Navbar() {
                     </>
                     :
                     <button
-                        className="link-like-button" // give CSS to look like a link
+                        className="link-like-button"
                         onClick={logout}
                     >
                         Uitloggen

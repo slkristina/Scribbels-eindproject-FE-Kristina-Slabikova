@@ -1,9 +1,7 @@
 import React from "react";
 import "./AdminSidebar.css";
-import {useNavigate} from "react-router-dom";
 
 function AdminSidebar({activeTab, setActiveTab}) {
-    const navigate = useNavigate();
 
     return (
         <nav aria-label="Admin Dashboard Navigation" className="admin-sidebar-container">

@@ -3,7 +3,7 @@ import axios from "axios";
 import './MessageCard.css';
 import formatDutchDate from "../../util/helpers.jsx";
 
-function MessageCard({id, timeCreated, name, email, subject, message, messageData, setMessageData}) {
+function MessageCard({messageContent, messageData, setMessageData}) {
 
     async function handleDeleteMessage(id) {
         const zekerWeten = confirm("Weet je zeker dat je dit bericht wilt verwijderen?");
@@ -21,16 +21,16 @@ function MessageCard({id, timeCreated, name, email, subject, message, messageDat
         <div className={"messageCard"}>
             <div className={"messageCard-content"}>
                 <div className={"messageCard-content-top"}>
-                    <section><b>Afzender:</b> {name} ({email})</section>
+                    <section><b>Afzender:</b> {name} ({messageContent.email})</section>
 
-                    <section><b>Ontvangen op:</b> {formatDutchDate(timeCreated)}</section>
+                    <section><b>Ontvangen op:</b> {formatDutchDate(messageContent.createdAt)}</section>
                 </div>
                 <div className={"messageCard-content-middle"}>
-                    <b>Onderwerp:</b> {subject ? subject : "Geen onderwerp ingevuld"}
+                    <b>Onderwerp:</b> {messageContent.subject ? messageContent.subject : "Geen onderwerp ingevuld"}
                 </div>
                 <div className={"messageCard-content-bottom"}>
                     <section><b>Bericht:</b></section>
-                    <section>{message}</section>
+                    <section>{messageContent.message}</section>
 
                 </div>
             </div>

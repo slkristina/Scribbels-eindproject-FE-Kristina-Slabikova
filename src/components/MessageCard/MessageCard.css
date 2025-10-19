@@ -36,10 +36,6 @@
     flex: 1;
 }
 
-.messageCard-delete {
-    width: 10%;
-}
-
 @media (max-width: 768px) {
     .messageCard {
         display: flex;

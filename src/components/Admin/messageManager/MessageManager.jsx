@@ -5,7 +5,7 @@ import MessageCard from "../../MessageCard/MessageCard.jsx";
 function MessageManager() {
     const [messageData, setMessageData] = useState([]);
 
-    const fetchMessages = async () => {
+    async function fetchMessages() {
         try {
             const response = await axios.get(
                 "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/messages"
@@ -32,15 +32,10 @@ function MessageManager() {
     return (
         <>
             {messageData ?
-                messageData.map((message,index) => {
+                messageData.map((messageContent, index) => {
                     return <MessageCard
-                        key={message.id + index}
-                        id={message.id}
-                        timeCreated={message.createdAt}
-                        name={message.name}
-                        email={message.email}
-                        subject={message.subject}
-                        message={message.message}
+                        key={messageContent.id + index}
+                        messageContent={messageContent}
                         messageData={messageData}
                         setMessageData={setMessageData}
                     />
