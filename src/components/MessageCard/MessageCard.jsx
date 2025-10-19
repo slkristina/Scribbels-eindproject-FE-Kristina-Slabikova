@@ -34,7 +34,7 @@ function MessageCard({messageContent, messageData, setMessageData}) {
 
                 </div>
             </div>
-            <button type="button" onClick={() => handleDeleteMessage(id)}>🗑️</button>
+            <button type="button" onClick={() => handleDeleteMessage(messageContent.id)}>🗑️</button>
         </div>
     );
 }
