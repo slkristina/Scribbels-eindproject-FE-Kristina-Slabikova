@@ -1,9 +1,14 @@
 import axios from "axios";
 
+export const firebaseApi = axios.create({
+    baseURL: 'https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/',
+    timeout: 1000,
+});
+
 export default async function fetchAdventures() {
     try {
-        const response = await axios.get(
-            "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures"
+        const response = await firebaseApi.get(
+            "/adventures"
         );
         return response.data.documents?.map(doc => ({
            id: doc.name.split("/").pop(),

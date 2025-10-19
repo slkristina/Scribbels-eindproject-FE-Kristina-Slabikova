@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from "axios";
 import './MessageCard.css';
 import formatDutchDate from "../../util/helpers.jsx";
+import {firebaseApi} from "../../util/fetchers.jsx";
 
 function MessageCard({messageContent, messageData, setMessageData}) {
 
@@ -9,7 +9,7 @@ function MessageCard({messageContent, messageData, setMessageData}) {
         const zekerWeten = confirm("Weet je zeker dat je dit bericht wilt verwijderen?");
         if (zekerWeten) {
             try {
-                await axios.delete(`https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/messages/${id}`);
+                await firebaseApi.delete(`/messages/${id}`);
                 setMessageData(_ => messageData.filter(message => message.id !== id))
             } catch (err) {
                 console.error(err.message);

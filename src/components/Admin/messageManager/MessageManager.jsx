@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import MessageCard from "../../MessageCard/MessageCard.jsx";
+import {firebaseApi} from "../../../util/fetchers.jsx";
 
 function MessageManager() {
     const [messageData, setMessageData] = useState([]);
 
     async function fetchMessages() {
         try {
-            const response = await axios.get(
-                "https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/messages"
-            );
+            const response = await firebaseApi.get("/messages");
             const messages = response.data.documents?.map(doc => ({
                 id: doc.name.split("/").pop(),
                 name: doc.fields?.name?.stringValue || "",

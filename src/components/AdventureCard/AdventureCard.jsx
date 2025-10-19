@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from "axios";
 import './AdventureCard.css';
+import {firebaseApi} from "../../util/fetchers.jsx";
 
 function AdventureCard({adventure, adventureData, setAdventureData}) {
 
@@ -8,7 +8,7 @@ function AdventureCard({adventure, adventureData, setAdventureData}) {
         const zekerWeten = confirm("Weet je zeker dat je dit avontuur wilt verwijderen?")
         if (zekerWeten) {
             try {
-                await axios.delete(`https://firestore.googleapis.com/v1/projects/scribbels-b3ffe/databases/(default)/documents/adventures/${id}`);
+                await firebaseApi.delete(`/adventures/${id}`);
                 setAdventureData(_ => adventureData.filter(adventure => adventure.id !== id))
             } catch (err) {
                 console.error(err.message);
